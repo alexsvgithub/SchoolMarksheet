@@ -1,0 +1,312 @@
+from django.db import models
+
+# Create your models here.
+class firstTerm(models.Model):
+    name = models.CharField(max_length=50)
+    divi = models.CharField(max_length=50)
+    term = models.CharField(max_length=50)
+    rollNo = models.IntegerField()
+    registerNo = models.IntegerField()
+    std = models.IntegerField()
+
+
+
+    m1 = models.CharField(max_length=100,blank=True,null=True)
+    m2 = models.CharField(max_length=100,blank=True,null=True)
+    m3 = models.CharField(max_length=100,blank=True,null=True)
+
+    h1 = models.CharField(max_length=100,blank=True,null=True)
+    h2 = models.CharField(max_length=100,blank=True,null=True)
+    h3 = models.CharField(max_length=100,blank=True,null=True)
+
+    e1 = models.CharField(max_length=100,blank=True,null=True)
+    e2 = models.CharField(max_length=100,blank=True,null=True)
+    e3 = models.CharField(max_length=100,blank=True,null=True)
+
+    mth1 = models.CharField(max_length=100,blank=True,null=True)
+    mth2 = models.CharField(max_length=100,blank=True,null=True)
+    mth3 = models.CharField(max_length=100,blank=True,null=True)
+
+    sv1 = models.CharField(max_length=100,blank=True,null=True)
+    sv2 = models.CharField(max_length=100,blank=True,null=True)
+    sv3 = models.CharField(max_length=100,blank=True,null=True)
+
+    ss1 = models.CharField(max_length=100,blank=True,null=True)
+    ss2 = models.CharField(max_length=100,blank=True,null=True)
+    ss3 = models.CharField(max_length=100,blank=True,null=True)
+
+    k1 = models.CharField(max_length=100,blank=True,null=True)
+    k2 = models.CharField(max_length=100,blank=True,null=True)
+    k3 = models.CharField(max_length=100,blank=True,null=True)
+    
+    kr1 = models.CharField(max_length=100,blank=True,null=True)
+    kr2 = models.CharField(max_length=100,blank=True,null=True)
+    kr3 = models.CharField(max_length=100,blank=True,null=True)
+
+    ssk1 = models.CharField(max_length=100,blank=True,null=True)
+    ssk2 = models.CharField(max_length=100,blank=True,null=True)
+    ssk3 = models.CharField(max_length=100,blank=True,null=True)
+
+    hb1 = models.CharField(max_length=100,blank=True,null=True)
+    hb2 = models.CharField(max_length=100,blank=True,null=True)
+    hb3 = models.CharField(max_length=100,blank=True,null=True)
+
+    vp1 = models.CharField(max_length=100,blank=True,null=True)
+    vp2 = models.CharField(max_length=100,blank=True,null=True)
+    vp3 = models.CharField(max_length=100,blank=True,null=True)
+
+    mis1 = models.CharField(max_length=100,blank=True,null=True)
+    mis2 = models.CharField(max_length=100,blank=True,null=True)
+    mis3 = models.CharField(max_length=100,blank=True,null=True)
+
+    miss1 = models.CharField(max_length=100,blank=True,null=True)
+    miss2 = models.CharField(max_length=100,blank=True,null=True)
+    miss3 = models.CharField(max_length=100,blank=True,null=True)
+
+class secondTerm(models.Model):
+    name = models.CharField(max_length=50)
+    div = models.CharField(max_length=10)
+    term = models.CharField(max_length=10)
+    rollNo = models.IntegerField()
+    registerNo = models.IntegerField()
+    std = models.IntegerField()
+
+    m1 = models.CharField(max_length=100,blank=True,null=True)
+    m2 = models.CharField(max_length=100,blank=True,null=True)
+    m3 = models.CharField(max_length=100,blank=True,null=True)
+
+    h1 = models.CharField(max_length=100,blank=True,null=True)
+    h2 = models.CharField(max_length=100,blank=True,null=True)
+    h3 = models.CharField(max_length=100,blank=True,null=True)
+
+    e1 = models.CharField(max_length=100,blank=True,null=True)
+    e2 = models.CharField(max_length=100,blank=True,null=True)
+    e3 = models.CharField(max_length=100,blank=True,null=True)
+
+    mth1 = models.CharField(max_length=100,blank=True,null=True)
+    mth2 = models.CharField(max_length=100,blank=True,null=True)
+    mth3 = models.CharField(max_length=100,blank=True,null=True)
+
+    sv1 = models.CharField(max_length=100,blank=True,null=True)
+    sv2 = models.CharField(max_length=100,blank=True,null=True)
+    sv3 = models.CharField(max_length=100,blank=True,null=True)
+
+    ss1 = models.CharField(max_length=100,blank=True,null=True)
+    ss2 = models.CharField(max_length=100,blank=True,null=True)
+    ss3 = models.CharField(max_length=100,blank=True,null=True)
+
+    k1 = models.CharField(max_length=100,blank=True,null=True)
+    k2 = models.CharField(max_length=100,blank=True,null=True)
+    k3 = models.CharField(max_length=100,blank=True,null=True)
+    
+    kr1 = models.CharField(max_length=100,blank=True,null=True)
+    kr2 = models.CharField(max_length=100,blank=True,null=True)
+    kr3 = models.CharField(max_length=100,blank=True,null=True)
+
+    ssk1 = models.CharField(max_length=100,blank=True,null=True)
+    ssk2 = models.CharField(max_length=100,blank=True,null=True)
+    ssk3 = models.CharField(max_length=100,blank=True,null=True)
+
+    hb1 = models.CharField(max_length=100,blank=True,null=True)
+    hb2 = models.CharField(max_length=100,blank=True,null=True)
+    hb3 = models.CharField(max_length=100,blank=True,null=True)
+
+    vp1 = models.CharField(max_length=100,blank=True,null=True)
+    vp2 = models.CharField(max_length=100,blank=True,null=True)
+    vp3 = models.CharField(max_length=100,blank=True,null=True)
+
+    mis1 = models.CharField(max_length=100,blank=True,null=True)
+    mis2 = models.CharField(max_length=100,blank=True,null=True)
+    mis3 = models.CharField(max_length=100,blank=True,null=True)
+
+    miss1 = models.CharField(max_length=100,blank=True,null=True)
+    miss2 = models.CharField(max_length=100,blank=True,null=True)
+    miss3 = models.CharField(max_length=100,blank=True,null=True)
+    
+# class SecondTerm(models.Model):
+#     stock = models.CharField(max_length=10)
+#     quantity = models.IntegerField()
+#     purchasedPrice = models.IntegerField()
+#     dop = models.CharField(max_length=10)
+#     currentPrice = models.IntegerField()
+#     pl = models.IntegerField()
+
+class DefaultValues(models.Model):
+    one = models.IntegerField()
+    two = models.IntegerField()
+    three = models.IntegerField()
+    four = models.IntegerField()
+    five = models.IntegerField()
+    six = models.IntegerField()
+    seven = models.IntegerField()
+    eight = models.IntegerField()
+    nine = models.IntegerField()
+    ten = models.IntegerField()
+    eleven = models.IntegerField()
+    twelve = models.IntegerField()
+    thirteen = models.IntegerField()
+    fourteen = models.IntegerField()
+    fifteen = models.IntegerField()
+
+class DefaultMinValues(models.Model):
+    one = models.IntegerField()
+    two = models.IntegerField()
+    three = models.IntegerField()
+    four = models.IntegerField()
+    five = models.IntegerField()
+    six = models.IntegerField()
+    seven = models.IntegerField()
+    eight = models.IntegerField()
+    nine = models.IntegerField()
+    
+    fourteen = models.IntegerField()
+    fifteen = models.IntegerField()
+
+class ObtainedMarks(models.Model):
+    name = models.CharField(max_length=50,blank=True,null=True)
+    div = models.CharField(max_length=10,blank=True)
+    term = models.CharField(max_length=10,blank=True)
+    rollNo = models.IntegerField()
+    registerNo = models.IntegerField(null=True)
+    std = models.IntegerField(null=True)
+
+    A1 = models.CharField(max_length=100,blank=True,null=True)
+    A2 = models.CharField(max_length=100,blank=True,null=True)
+    A3 = models.CharField(max_length=100,blank=True,null=True)
+    A4 = models.CharField(max_length=100,blank=True,null=True)
+    A5 = models.CharField(max_length=100,blank=True,null=True)
+    A6 = models.CharField(max_length=100,blank=True,null=True)
+    A7 = models.CharField(max_length=100,blank=True,null=True)
+    A8 = models.CharField(max_length=100,blank=True,null=True)
+    A9 = models.CharField(max_length=100,blank=True,null=True)
+    A10 = models.CharField(max_length=100,blank=True,null=True)
+    A11 = models.CharField(max_length=100,blank=True,null=True)
+    A12 = models.CharField(max_length=100,blank=True,null=True)
+    A13 = models.CharField(max_length=100,blank=True,null=True)
+    A14 = models.CharField(max_length=100,blank=True,null=True)
+    A15 = models.CharField(max_length=100,blank=True,null=True)
+
+    B1 = models.CharField(max_length=100,blank=True,null=True)
+    B2 = models.CharField(max_length=100,blank=True,null=True)
+    B3 = models.CharField(max_length=100,blank=True,null=True)
+    B4 = models.CharField(max_length=100,blank=True,null=True)
+    B5 = models.CharField(max_length=100,blank=True,null=True)
+    B6 = models.CharField(max_length=100,blank=True,null=True)
+    B7 = models.CharField(max_length=100,blank=True,null=True)
+    B8 = models.CharField(max_length=100,blank=True,null=True)
+    B9 = models.CharField(max_length=100,blank=True,null=True)
+    B10 = models.CharField(max_length=100,blank=True,null=True)
+    B11 = models.CharField(max_length=100,blank=True,null=True)
+    B12 = models.CharField(max_length=100,blank=True,null=True)
+    B13 = models.CharField(max_length=100,blank=True,null=True)
+    B14 = models.CharField(max_length=100,blank=True,null=True)
+    B15 = models.CharField(max_length=100,blank=True,null=True)
+
+    C1 = models.CharField(max_length=100,blank=True,null=True)
+    C2 = models.CharField(max_length=100,blank=True,null=True)
+    C3 = models.CharField(max_length=100,blank=True,null=True)
+    C4 = models.CharField(max_length=100,blank=True,null=True)
+    C5 = models.CharField(max_length=100,blank=True,null=True)
+    C6 = models.CharField(max_length=100,blank=True,null=True)
+    C7 = models.CharField(max_length=100,blank=True,null=True)
+    C8 = models.CharField(max_length=100,blank=True,null=True)
+    C9 = models.CharField(max_length=100,blank=True,null=True)
+    C10 = models.CharField(max_length=100,blank=True,null=True)
+    C11 = models.CharField(max_length=100,blank=True,null=True)
+    C12 = models.CharField(max_length=100,blank=True,null=True)
+    C13 = models.CharField(max_length=100,blank=True,null=True)
+    C14 = models.CharField(max_length=100,blank=True,null=True)
+    C15 = models.CharField(max_length=100,blank=True,null=True)
+
+    D1 = models.CharField(max_length=100,blank=True,null=True)
+    D2 = models.CharField(max_length=100,blank=True,null=True)
+    D3 = models.CharField(max_length=100,blank=True,null=True)
+    D4 = models.CharField(max_length=100,blank=True,null=True)
+    D5 = models.CharField(max_length=100,blank=True,null=True)
+    D6 = models.CharField(max_length=100,blank=True,null=True)
+    D7 = models.CharField(max_length=100,blank=True,null=True)
+    D8 = models.CharField(max_length=100,blank=True,null=True)
+    D9 = models.CharField(max_length=100,blank=True,null=True)
+    D10 = models.CharField(max_length=100,blank=True,null=True)
+    D11 = models.CharField(max_length=100,blank=True,null=True)
+    D12 = models.CharField(max_length=100,blank=True,null=True)
+    D13 = models.CharField(max_length=100,blank=True,null=True)
+    D14 = models.CharField(max_length=100,blank=True,null=True)
+    D15 = models.CharField(max_length=100,blank=True,null=True)
+
+    E1 = models.CharField(max_length=100,blank=True,null=True)
+    E2 = models.CharField(max_length=100,blank=True,null=True)
+    E3 = models.CharField(max_length=100,blank=True,null=True)
+    E4 = models.CharField(max_length=100,blank=True,null=True)
+    E5 = models.CharField(max_length=100,blank=True,null=True)
+    E6 = models.CharField(max_length=100,blank=True,null=True)
+    E7 = models.CharField(max_length=100,blank=True,null=True)
+    E8 = models.CharField(max_length=100,blank=True,null=True)
+    E9 = models.CharField(max_length=100,blank=True,null=True)
+    E10 = models.CharField(max_length=100,blank=True,null=True)
+    E11 = models.CharField(max_length=100,blank=True,null=True)
+    E12 = models.CharField(max_length=100,blank=True,null=True)
+    E13 = models.CharField(max_length=100,blank=True,null=True)
+    E14 = models.CharField(max_length=100,blank=True,null=True)
+    E15 = models.CharField(max_length=100,blank=True,null=True)
+
+    F1 = models.CharField(max_length=100,blank=True,null=True)
+    F2 = models.CharField(max_length=100,blank=True,null=True)
+    F3 = models.CharField(max_length=100,blank=True,null=True)
+    F4 = models.CharField(max_length=100,blank=True,null=True)
+    F5 = models.CharField(max_length=100,blank=True,null=True)
+    F6 = models.CharField(max_length=100,blank=True,null=True)
+    F7 = models.CharField(max_length=100,blank=True,null=True)
+    F8 = models.CharField(max_length=100,blank=True,null=True)
+    F9 = models.CharField(max_length=100,blank=True,null=True)
+    F10 = models.CharField(max_length=100,blank=True,null=True)
+    F11 = models.CharField(max_length=100,blank=True,null=True)
+    F12 = models.CharField(max_length=100,blank=True,null=True)
+    F13 = models.CharField(max_length=100,blank=True,null=True)
+    F14 = models.CharField(max_length=100,blank=True,null=True)
+    F15 = models.CharField(max_length=100,blank=True,null=True)
+
+    G1 = models.CharField(max_length=100,blank=True,null=True)
+    G2 = models.CharField(max_length=100,blank=True,null=True)
+    G3 = models.CharField(max_length=100,blank=True,null=True)
+    G4 = models.CharField(max_length=100,blank=True,null=True)
+    G5 = models.CharField(max_length=100,blank=True,null=True)
+    G6 = models.CharField(max_length=100,blank=True,null=True)
+    G7 = models.CharField(max_length=100,blank=True,null=True)
+    G8 = models.CharField(max_length=100,blank=True,null=True)
+    G9 = models.CharField(max_length=100,blank=True,null=True)
+    G14 = models.CharField(max_length=100,blank=True,null=True)
+    G15 = models.CharField(max_length=100,blank=True,null=True)
+
+    H1 = models.CharField(max_length=100,blank=True,null=True)
+    H2 = models.CharField(max_length=100,blank=True,null=True)
+    H3 = models.CharField(max_length=100,blank=True,null=True)
+    H4 = models.CharField(max_length=100,blank=True,null=True)
+    H5 = models.CharField(max_length=100,blank=True,null=True)
+    H6 = models.CharField(max_length=100,blank=True,null=True)
+    H7 = models.CharField(max_length=100,blank=True,null=True)
+    H8 = models.CharField(max_length=100,blank=True,null=True)
+    H9 = models.CharField(max_length=100,blank=True,null=True)
+    H14 = models.CharField(max_length=100,blank=True,null=True)
+    H15 = models.CharField(max_length=100,blank=True,null=True)
+
+    I1 = models.CharField(max_length=100,blank=True,null=True)
+    I2 = models.CharField(max_length=100,blank=True,null=True)
+    I3 = models.CharField(max_length=100,blank=True,null=True)
+    I4 = models.CharField(max_length=100,blank=True,null=True)
+    I5 = models.CharField(max_length=100,blank=True,null=True)
+    I6 = models.CharField(max_length=100,blank=True,null=True)
+    I7 = models.CharField(max_length=100,blank=True,null=True)
+    I8 = models.CharField(max_length=100,blank=True,null=True)
+    I9 = models.CharField(max_length=100,blank=True,null=True)
+    I14 = models.CharField(max_length=100,blank=True,null=True)
+    I15 = models.CharField(max_length=100,blank=True,null=True)
+    
+
+
+
+
+
+# firstTerm
+# secondTerm
+# DefaultValues

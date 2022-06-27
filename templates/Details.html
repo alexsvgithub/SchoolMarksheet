@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    table, td, th {  
+      border: 1px solid #ddd;
+      text-align: left;
+      font-size: 20px;
+      height: 70%;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      padding: 15px;
+    }
+
+    .hide{
+    display:none;
+    }
+
+    .show{
+    display:block;
+    }
+
+    @media print {
+      @page { margin: 0; }
+      body { margin: 1.6cm; }
+    }
+
+    .printss {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.text-center{
+  text-align: center;
+}
+
+#txtarea { border: 1px solid #f0f040; background-color: #fffff0; width: 100%; padding: 4px; margin: 5px; }
+   
+#content table td#tdContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#innerDiv {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+}
+
+textarea {
+    border: none;
+    width: 100%;
+    -webkit-box-sizing: border-box; /* <=iOS4, <= Android  2.3 */
+       -moz-box-sizing: border-box; /* FF1+ */
+            box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+}
+
+  </style>
+
+</head>
+<body>
+
+  
+  <form method="POST" action="/Details">
+    {% csrf_token %}
+
+    <table>
+      <tr>
+        <th style="width:25%;">सत्र :
+          <input class="a" list="sem" name="sem" id="browser" style="display:table-cell; width:30% ;">
+              <datalist id="sem">
+                  <option value="प्रथम ">
+                  <option value="दुतिय">
+              </datalist><br>
+            
+        </th>
+        <th style="vertical-align: middle;"><h2 style="font-family: Arial, Helvetica, sans-serif;">वर्णनात्मक नोंदी</h2></th>
+      </tr>
+      <tr>
+        <td><b>इयत्ता : <b><input type="text" class="a" name="std" size="4"><br><br><b>हजेरी क्र:</b><input type="text" class="a" name="rollNo" size="5"></td><br>
+        <td> <b> विद्यार्थ्यांचे नाव : <b><input type="text" class="a" name="name" size="40"><br><br><b>तुकडी : </b><input type="text" class="a" name="divi" size="5"></td>
+        
+      </tr>
+    
+    </table>
+    <table width="100%">
+      <tr>
+          <th style="width:25%;">विषय </th>
+          <th>वर्णनात्मक नोंदणी </th>
+      </tr>
+  
+      <tr>
+        <!-- onclick="add_fields();" -->
+        <!-- onclick="add_fields();" -->
+          <td>मराठी</td>
+          <td>
+              <input class="a" list="marathi" name="m1" id="hello" style="display:table-cell; width:100% ; height: 100%;">
+              <input class="a" list="marathi" name="m2" id="hello" style="display:table-cell; width:100% ; height: 100%;">
+              <input class="a" list="marathi" name="m3" id="hello" style="display:table-cell; width:100% ; height: 100%;">
+              <datalist id="marathi">
+                  <option value="marathi">
+                    <option value=गतीवाचन&nbspअचूक&nbspकरतो.>
+                      <option value=हस्ताक्षर&nbspसुंदर&nbspआहे.>
+                      <option value=प्रश्नांची&nbspयोग्य&nbspउत्तरे&nbspदेतो.>
+                      <option value=वाक्यातील&nbspनामे&nbspओळखतो.>
+                      <option value=वाक्यातील&nbspसर्वनामे&nbspओळखतो.>
+                      <option value=सुचवलेल्या&nbspशब्दांची&nbspसामान्यरूपे&nbspसांगतो.>
+                      <option value=पत्रलेखन&nbspकरण्यासाठी&nbspमायना&nbspव&nbspमजकूर&nbspतयार&nbspकरतो.>
+                      <option value=श्रुतलेखन&nbspविरामचिन्हांसह&nbspकरतो.>
+                      <option value=दिलेले&nbspचित्र&nbspपाहून&nbspयोग्य&nbspभाषेत&nbspवर्णन&nbspकरतो.>
+                      <option value=घडलेल्या&nbspघटनेवर&nbspआपले&nbspमत&nbspमांडतो.>
+                      <option value=दिलेल्या&nbspप्रसंगाचे&nbspसादरीकरण&nbspकरतो.>
+                      <option value=कवितांचे&nbspअर्थ&nbspलक्षात&nbspघेतो.>
+                      <option value=कवितेतील&nbspओळींचा&nbspअर्थ&nbspसांगतो.>
+                      <option value=दिलेल्या&nbspशब्दावरून&nbspकथा&nbspतयार&nbspकरतो.>
+                      <option value=स्वत:चे&nbspअनुभव&nbspप्रमाणभाषेत&nbspसांगतो.>
+                      <option value=शब्दांच्या&nbspजाती&nbspओळखतो.>
+                      <option value=वाक्प्रचारांचा&nbspव्यवहारात&nbspवापर&nbspकरतो.>
+                      <option value=सुचवलेल्या&nbspकथेचा&nbspसारांश&nbspलिहितो.>
+                      <option value=पाठातील&nbspतंत्रज्ञानविषयक&nbspशब्दांची&nbspओळख&nbspआहे.>
+                      <option value=मराठी&nbspकवी,&nbspलेखक&nbspयांची&nbspटोपणनावे&nbspमाहीत&nbspआहे.>
+                      <option value=बोलीभाषेतील&nbspशब्दांसाठी&nbspप्रमाणभाषेतील&nbspशब्द&nbspसांगतो.>
+                      <option value=अपरिचित&nbspउतारे&nbspआकलनासह&nbspअचूक&nbspवाचतो.>
+                      <option value=संवादावर&nbspआधारित&nbspप्रश्नांची&nbspउत्तरे&nbspदेतो.>
+                      <option value= जाहिरातीवर&nbspआधारित&nbspप्रश्नांची&nbspउत्तरे&nbspदेतो.>
+                      <option value=योग्य&nbspशब्द&nbspवापरुन&nbspसुसंगत&nbspवाक्यांचा&nbspपरिच्छेद&nbspतयार&nbspकरतो.>
+                      <option value=मुलाखतीसाठी&nbspप्रश्न&nbspतयार&nbspकरतो.>
+                      <option value=वाक्याचा&nbspअर्थ&nbspन&nbspबदलता&nbspवाक्यावर&nbspविविध&nbspक्रिया&nbspकरतो.>
+                      <option value=कल्पनाशक्तीचा&nbspवापर&nbspकरून&nbspगोष्ट&nbspपूर्ण&nbspकरतो.>
+                      <option value=नाटयीकरणात&nbspसहभागी&nbspहोतो.>
+                      <option value=भाषणे&nbspसादर&nbspकरतो.>
+                      <option value=सुचविलेल्या&nbspशब्दांसाठी&nbspसमानार्थी-विरुद्धार्थी&nbspशब्द&nbspसांगतो.>
+                      <option value=वाक्यातील&nbspविशेषणे&nbspओळखतो.>
+                      <option value=सणांविषयी&nbspमोठ्यांशी&nbspगप्पा&nbspमारते.>
+                      <option value=सार्वजनिक&nbspठिकाणावरील&nbspस्वच्छता&nbspसंदेशांचा&nbspवहीत&nbspसंग्रह&nbspकरतो.>
+                      <option value=शिक्षकांच्या&nbspमदतीने&nbspई&nbspपुस्तकांचे&nbspवाचन&nbspकरतो.>
+                      <option value=सूचनाफलक&nbspव&nbspजाहिरात&nbspयांचे&nbspनमुने&nbspतयार&nbspकरतो.>
+                      <option value=वाक्यातील&nbspक्रियापदे&nbspओळखतो.>
+                      <option value=शेतीच्या&nbspकामांची&nbspपूर्वीची&nbspव&nbspआताची&nbspस्थिती&nbspसांगतो.>
+                      <option value=सुचविलेल्या&nbspवाक्याचा&nbspकाळ&nbspओळखतो.>
+                      <option value=सुचविलेल्या&nbspप्रकारच्या&nbspकाळावरील&nbspवाक्ये&nbspसांगतो.> 
+                      <option value=सुचविलेला&nbspउपक्रम&nbspवेळेत&nbspपूर्ण&nbspकरतो.>
+                      <option value=प्रश्नांची&nbspअगदी&nbspयोग्य&nbspव&nbspव्यवस्थित&nbspउत्तरे&nbspदेतो.>
+                      <option value=स्वाध्याय/गृहपाठ&nbspवेळेत&nbspपूर्ण&nbspकरतो.>
+                      <option value=बोलताना&nbspशब्द&nbspव&nbspवाक्य&nbspअचूक&nbspव&nbspसमर्पक&nbspवापरतो.>
+                      <option value=मोठ्यांशी&nbspबोलताना&nbspफार&nbspनम्रपणे&nbspबोलतो.>
+                      <option value=स्वत:&nbspछोट्या&nbspछोट्या&nbspकथा&nbspतयार&nbspकरतो.>
+                      <option value=संवाद&nbspसाधण्याचे&nbspकौशल्य&nbspउत्तम&nbspआहे.>
+                      <option value=स्वत:चे&nbspअनुभव&nbspश्रवणीय&nbspभाषेत&nbspसांगतो.>
+                      <option value=सर्वांसमोर&nbspबोलताना&nbspअगदी&nbspधीटपणे&nbspबोलतो.>
+                      <option value=कवितेच्या&nbspओळी/कडवे&nbspऐकतो&nbspव&nbspलगेचच&nbspपूर्ण&nbspकरतो.>
+                      <option value=दिलेल्या&nbspसूचना&nbspलक्षपूर्वक&nbspऐकतो&nbspव&nbspतंतोतंत&nbspपालन&nbspकरतो.>
+                      <option value=सुचविलेले&nbspगीत/कविता&nbspतालासुरात&nbspम्हणतो.>
+                      <option value=सुचविलेल्या&nbspकडव्यांचे&nbspअर्थ&nbspस्पष्ट&nbspसांगतो.>
+                      <option value=सुचविलेला&nbspभाग/कथा/प्रसंग&nbspसुंदर&nbspरीतीने&nbspसांगतो.>
+                      <option value=सुचविलेल्या&nbspगीताचे/कवितेचे&nbspसाभिनय&nbspसादरीकरण&nbspकरतो.>
+                      <option value=सुचविलेला&nbspमजकूर&nbspलिहिताना&nbspखूपच&nbspआकर्षक&nbspपद्धतीने&nbspलिहितो.>
+                      <option value=शब्द/मजकूर&nbspलक्षपूर्वक&nbspऐकतो&nbspव&nbspअचूक&nbspलिहितो.>
+                      <option value=शब्द/मजकूर&nbspऐकून&nbspजलद&nbspव&nbspअचूक&nbspलिहितो.>
+                      <option value=दिलेल्या&nbspसूचना&nbspऐकतो&nbspव&nbspतशी&nbspकृती&nbspकरतो.>
+                      <option value=आपले&nbspविचार&nbsp,अनुभव&nbsp,भावना&nbspस्पष्ट&nbspशब्दात&nbspव्यक्त&nbspकरतो.>
+                      <option value=ऐकलेल्या&nbspमजकुरातील&nbspआशय&nbspस्वत:च्या&nbspशब्दात&nbspसांगतो.>
+                      <option value=बोलताना&nbspशब्दाचा&nbspस्पष्ट&nbspउच्चार&nbspकरतो.>
+                      <option value=बोलताना&nbspशब्दाचा&nbspस्पष्ट&nbspउच्चार&nbspकरतो.>
+                      <option value=कोणतीही&nbspगोष्ट&nbspलक्षपूर्वक&nbspऐकतो.>
+                      <option value=प्रभावीपणे&nbspप्रकटवाचन&nbspकरतो.>
+                      <option value=मजकुराचे&nbspवाचन&nbspसमजपूर्वक&nbspकरतो.>
+                      <option value=आत्मविश्वासपूर्वक&nbspबोलतो.>
+                      <option value=दिलेल्या&nbspविषयावर&nbspमुद्देसूद&nbspबोलतो.>
+                      <option value=लक्षपूर्वक&nbsp,एकाग्रतेने&nbspव&nbspसमजपुर्वक&nbspमुकवाचन&nbspकरतो.>
+                      <option value=विविध&nbspविषयावरील&nbspचर्चेत&nbspभाग&nbspघेतो.>
+                      <option value=स्वत:हून&nbspप्रश्न&nbspविचारतो.>
+                      <option value=नाट्यभिनय&nbspप्रसंगानुरूप&nbspव&nbspव्यक्तिनुरूप&nbspकरतो.>
+                      <option value=कविता&nbspतालासुरात&nbspसाभिनय&nbspम्हणतो.>
+                      <option value=दैनंदिन&nbspव्यवहारात&nbspप्रमाणभाषेचा&nbspवापर&nbspकरतो.>
+                      <option value=विविध&nbspबोलीभाषेतील&nbspनवीन&nbspशब्द&nbspसमजून&nbspघेतो.>
+                      <option value=बोलीभाषा&nbspव&nbspप्रमाणभाषा&nbspयातील&nbspफरक&nbspजाणतो.>
+                      <option value=व्याकरणानुसार&nbspभाषेचा&nbspवापर&nbspकरतो.>
+                      <option value=भाषण&nbsp,संभाषण&nbsp,संवाद&nbsp,चर्चा&nbspएकाग्रतेने&nbspऐकतो.>
+                      <option value=बोधकथा,&nbspवर्तमानपत्रे,&nbspमासिके&nbspइ&nbspवाचतो&nbspव&nbspइतरांना&nbspमाहिती&nbspसांगतो.>
+                      <option value=ऐकलेल्या,&nbspवाचलेल्या&nbspगोष्टीबाबत&nbspनिष्कर्ष&nbspकाढतो.>
+                      <option value=मजकूर&nbspवाचून&nbspप्रश्नांची&nbspयोग्य&nbspउत्तरे&nbspदेतो.>
+                      <option value=निंबध&nbspलेखनात&nbspआपल्या&nbspभाषेत&nbspविचार&nbspमांडतो.>
+                      <option value=शब्द,&nbspवाक्यप्रचार&nbspम्हणी,&nbspबोधवाक्ये&nbspइ&nbspचा&nbspलेखनात&nbspवापर&nbspकरतो.>
+                      <option value=अवांतर&nbspवाचन&nbspकरतो.>
+                      <option value=गोष्टी,&nbspकविता,&nbspलेख&nbspवर्णन&nbspइ&nbspस्वरूपाने&nbspलेखन&nbspकरतो.>
+                      <option value=मुद्देसूद&nbspलेखन&nbspकरतो.>
+                      <option value=शुद्धलेखन&nbspअचूक&nbspकरतो.>
+                      <option value=अचूक&nbspअनुलेखन&nbspकरतो.>
+                      <option value=स्वाध्याय&nbspअचूक&nbspसोडवितो.>
+                      <option value=स्वयंअध्ययन&nbspकरतो.>
+                      <option value=अडचणी&nbspसमस्या&nbspशिक्षकाकडे&nbspमांडतो.>
+                      <option value=नियम,&nbspसुचना,&nbspशिस्त&nbspयांचे&nbspपालन&nbspकरतो.>
+                      <option value=लेखनाचे&nbspनियम&nbspपाळतो.>
+                      <option value=लेखनात&nbspविरामचिन्हाचा&nbspयोग्य&nbspवापर&nbspकरतो.>
+                      <option value=वाक्यप्रचार&nbspव&nbspम्हणीचा&nbspअर्थ&nbspसांगून&nbspवाक्यात&nbspउपयोग&nbspकरतो.>
+                      <option value=दिलेल्या&nbspवेळेत&nbspप्रकटवाचन,&nbspमुकवाचन&nbspकरतो.>
+                      <option value=पाठातील&nbspशंका&nbspविचारतो.>
+                      <option value=हस्ताक्षर&nbspसुंदर&nbspव&nbspवळणदार&nbspआहे.>
+                      <option value=गृहपाठ&nbspव&nbspस्वाध्याय&nbspवेळेवर&nbspकरतो.>
+                      <option value=वाचनाची&nbspआवड&nbspआहे.>
+                      <option value=कविता&nbspचालीमध्ये&nbspम्हणतो.>
+                      <option value=सुविचाराचा&nbspसंग्रह&nbspकरतो.>
+                      <option value=प्रश्नांची&nbspअचूक&nbspउत्तरे&nbspदेतो.>
+                      <option value=दिलेल्या&nbspविषयावर&nbspनिबंध&nbspलिहितो.>
+                      <option value=बोधकथा&nbspसांगतो.>
+                      <option value=वाक्यप्रचार&nbspव&nbspम्हणीचा&nbspव्यवहारात&nbspउपयोग&nbspकरतो .>
+                      सर्वसाधारण-विद्यार्थ्यांसाठी-मराठी
+                      <option value=वाचन&nbspकरण्याचा&nbspप्रयत्न&nbspकरतो.>
+                      <option value=शुद्धलेखनातील&nbspचुका&nbspटाळण्यासाठी&nbspप्रयत्न&nbspकरावा.>
+                      <option value=वाचन&nbspगती&nbspवाढवणे&nbspआवश्यक.>
+                      <option value=कविता&nbspसादरीकरण&nbspतालासुरात&nbspकरण्याचा&nbspप्रयत्न&nbspकरतो.>
+                      <option value=आपल्या&nbspभाषेत&nbspचित्रवर्णन&nbspकरण्याचा&nbspप्रयत्न&nbspकरतो.>
+                      <option value=एखादी&nbspघटना&nbspप्रमाणभाषेत&nbspसांगण्याचा&nbspप्रयत्न&nbspकरतो.>
+                      <option value=श्रुतलेखन&nbspविरामचिन्हांसह&nbspकरण्याचा&nbspप्रयत्न&nbspकरावा.>
+                      <option value=संभाषणात&nbspसहभाग&nbspघेणे&nbspअपेक्षित.>
+                      <option value=आत्मविश्वास&nbspवाढवणे&nbspआवश्यक.>
+                      <option value=अक्षरांचे&nbspस्ट्रोक्स&nbspसराव&nbspआवश्यक.>
+                      <option value=सर्वनामे&nbspओळखण्याचा&nbspप्रयत्न&nbspकरतो.>
+                      <option value=सुचविलेल्या&nbspकथेचा&nbspसारांश&nbspसांगण्याचा&nbspप्रयत्न&nbspकरतो.>
+                      <option value=सुचवलेल्या&nbspविषयावर&nbspस्वत:चे&nbspमत&nbspमांडणे&nbspआवश्यक&nbspआहे.>
+                      <option value=प्रश्न&nbspतयार&nbspकरण्याचे&nbspकौशल्य&nbspशिकणे&nbspआवश्यक.>
+                      <option value=शब्दसंपत्ती&nbspवाढवणे&nbspगरजेचे&nbspआहे.>
+                      <option value=बातम्यांची&nbspशीर्षके&nbspवाचण्याचा&nbspप्रयत्न&nbspकरतो.>
+                      <option value=वाक्यांचे&nbspकाळ&nbspओळखण्याचा&nbspप्रयत्न&nbspकरतो.>
+                      <option value=दिलेल्या&nbspसूचनांचा&nbspअर्थ&nbspसमजून&nbspघेत&nbspनाही.>
+                      <option value=सुचविलेली&nbspकथा&nbspऐकतो&nbspपण&nbspपूर्ण&nbspकरता&nbspयेत&nbspनाही.>
+                      <option value=सुचविलेला&nbspभाग&nbspवाचन&nbspकरताना&nbspअडखळतो.>
+                      <option value=सुचविलेला&nbspभाग&nbspवाचताना&nbspशब्दोच्चार&nbspअशुद्ध&nbspकरतो .>
+                      <option value=सुचविलेल्या&nbspकडव्यांचे&nbspअर्थ&nbspसांगताना&nbspचुकीचे&nbspअर्थ&nbspसांगतो.>
+                      <option value=सुचविलेल्या&nbspगीताची/&nbspप्रसंगाची&nbspकृती&nbspकरताना&nbspलाजतो.>
+                      <option value=मजकूर&nbspपाहून&nbspलिहिताना&nbspलेखनात&nbspचुका&nbspकरतो.>
+                      <option value=मजकूर&nbspपाहून&nbspलिहिताना&nbspचुकीच्या&nbspपध्दतीने&nbspलिहितो .>
+                      <option value=दिलेले&nbspचित्र&nbspपाहून&nbspवर्णन/&nbspलेखन&nbspकरता&nbspयेत&nbspनाही.>
+                      <option value=कवितेच्या&nbspओळी/&nbspकडवे&nbspऐकतो&nbspपण&nbspपूर्ण&nbspकरत&nbspनाही.>
+                      <option value=प्रश्नांची&nbspचुकीच्या&nbspपद्धतीने&nbspउत्तरे&nbspदेतो.>
+                      
+                    
+                      
+                  
+              </datalist><br>
+              <div id="wrapper1">
+  
+              </div>
+          </td>
+      </tr>
+      <tr>
+        <td>हिंदी</td>
+        <td>
+          <input class="a" list="hindi" name="h1" id="hello" style="display:table-cell; width:100% ; height: 100%;">
+          <input class="a" list="hindi" name="h2" id="hello" style="display:table-cell; width:100% ; height: 100%;">
+          <input class="a" list="hindi" name="h3" id="hello" style="display:table-cell; width:100% ; height: 100%;">
+          <datalist id="hindi">
+              <option value="hindi">
+                <option value=मेले&nbspमे&nbspजाकर&nbspव्यवसायिकोंसे&nbspबातचीत&nbspकरता&nbspहै|>
+                  <option value=दिए&nbspगये&nbspशब्दों&nbspके&nbspलययुक्त&nbspशब्द&nbspबताता&nbspहै|>
+                  <option value=चित्रों&nbspकी&nbspसहायता&nbspसे&nbspप्रकृतीक&nbspसुंदरता&nbspदर्शानेवाला&nbspचित्र&nbspबनाता&nbspहै|>
+                  <option value= दिए&nbspगये&nbspशब्दों&nbspके&nbspलययुक्त&nbspशब्द&nbspलिखता&nbspहै|>
+                  <option value=ऋतुओ&nbspके&nbspनाम&nbspऔर&nbspपरिवर्तन&nbspकी&nbspजानकारी&nbspबताता&nbspहै|>
+                  <option value=शब्दों&nbspके&nbspसमानार्थी&nbspशब्द&nbspबताता&nbspहै|>
+                  <option value=मुहावरोंके&nbspअर्थ&nbspबताकर&nbspवाक्य&nbspमे&nbspप्रयोग&nbspकरता&nbspहै|>
+                  <option value=चित्र&nbspकी&nbspसहायता&nbspसे&nbspबारहखडी&nbspके&nbspशब्द&nbspबनाता&nbspहै|>
+                  <option value=वंश&nbspवृक्ष&nbspतैयार&nbspकरता&nbspहै,&nbspरिश्ते-नाते&nbspका&nbspनाम&nbspलिखता&nbspहै|>
+                  <option value=विद्यालय&nbspकी&nbspबारे&nbspमे&nbspजानकारी&nbspबताता&nbspहै|>
+                  <option value=बैंक&nbspसंबंधी&nbspजानकारी&nbspरखता&nbspहै|>
+                  <option value=सामान्य&nbspसूचनाओ&nbspको&nbspसमझता&nbspहै|>
+                  <option value=स्पष्ट&nbspतथा&nbspउचित&nbspउच्चारण&nbspकरता&nbspहै|>
+                  <option value=वर्णोका&nbspयोग्य&nbspउच्चारण&nbspकरता&nbspहै|>
+                  <option value=चिंत्रो&nbspको&nbspदेखकर&nbspशब्द&nbspकहता&nbspहै|>
+                  <option value=रुचि&nbspएवं&nbspआनंदपूर्वक&nbspकविता&nbspसुनता&nbspहै|>
+                  <option value=सुनी&nbspहुई&nbspबाते&nbspसमझ&nbspलेता&nbspहै&nbspऔर&nbspदोहरता&nbspहै|>
+                  <option value=स्वर&nbspतथा&nbspव्यंजन&nbspके&nbspउच्चारण&nbspध्यानपूर्वक&nbspकरता&nbspहै|>
+                  <option value=पाठयांश&nbspका&nbspआशय&nbspसमझता&nbspहै|>
+                  <option value=गीत&nbspऔर&nbspकविताए&nbspकंठस्थ&nbspकरता&nbspहै|>
+                  <option value=मातृभाषा&nbspऔर&nbspहिंदी&nbspके&nbspध्वनीयों&nbspका&nbspभेद&nbspसमझता&nbspहै|>
+                  <option value=अपने&nbspविचार&nbspहिंदी&nbspमे&nbspव्यक्त&nbspकरता&nbspहै|>
+                  <option value=मित्रो&nbspके&nbspसाथ&nbspहिंदी&nbspमे&nbspवार्तालाप&nbspकरता&nbspहै|>
+                  <option value=हिंदी&nbspशब्द&nbspतथा&nbspवाक्यो&nbspका&nbspमातृभाषा&nbspमें&nbspअनुवाद&nbspकरता&nbspहै|>
+                  <option value=मुकवाचन&nbspचढाव-उतार&nbspऔर&nbspसमझतापूर्वक&nbspकरता&nbspहै|>
+                  <option value=पाठयांश&nbspको&nbspसमझतापूर्वक&nbspपढता&nbspहै|>
+                  <option value=मौनवाचन&nbspसमझतापूर्वक&nbspकरता&nbspहै|>
+                  <option value=हिंदी&nbspकार्यात्मक&nbspव्याकरण&nbspको&nbspसमझपूर्वक&nbspजान&nbspलेता&nbspहै|>
+                  <option value=लेखन&nbspमें&nbspव्याकरण&nbspको&nbspसमझपूर्वक&nbspजान&nbspलेता&nbspहै|>
+                  <option value=नाटयीकरण,&nbspवार्तालाप&nbspमें&nbspभाग&nbspलेता&nbspहै|>
+                  <option value=पाठ्येत्तर&nbspपुस्तक&nbspएवं&nbspलिखित&nbspसामग्री&nbspपढता&nbspहै|>
+                  <option value=समाचारपत्र&nbspदररोज&nbspपढता&nbspहै|>
+                  <option value=सुसष्ट&nbspऔर&nbspशुद्ध&nbspलेखन&nbspकरता&nbspहै|>
+                  <option value=दिए&nbspगए&nbspविषयपर&nbspस्वयंप्रेरणासे&nbspलेखन&nbspकरता&nbspहै|>
+                  <option value=परिचित&nbspविषयपर&nbspनिबंध&nbspलेखन&nbspकरता&nbspहै|>
+                  <option value=दैनंदिन&nbspजीवन&nbspमें&nbspहिंदी&nbspभाषा&nbspका&nbspप्रयोग&nbspकरता&nbspहै|>
+                  <option value=हिंदी&nbspको&nbspराष्ट्रभाषा&nbspके&nbspरूप&nbspमे&nbspदेखता&nbspहै|>
+                  <option value=हिंदी&nbspभाषा&nbspके&nbspप्रति&nbspरुचि&nbspरखता&nbspहै|>
+                  <option value=हिंदी&nbspमें&nbspकहानी&nbspसुनाता&nbspहै|>
+                  <option value=अध्यापको&nbspके&nbspसाथ&nbspहिंदी&nbspमे&nbspबातचीत&nbspकरता&nbspहै|>
+                  <option value=शुद्धलेखन&nbspसमझतापूर्वक&nbspकरता&nbspहै|>
+                  
+
+              
+          </datalist><br>
+            <div id="wrapper2">
+  
+            </div>
+        </td>    
+      </tr>
+      <tr>
+          <td>इंग्रजी<br></td>
+          <td>
+  
+            <input class="a"  list="english" name="e1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a"  list="english" name="e2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a"  list="english" name="e3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="english">
+              
+              <option value="english">
+                <option value="Solves the Activity by confience.">
+                <option value="Copies the Letters and words correctly.">
+                  <option value="Reads aloud from textbook.">
+                  <option value="Writes correctly on one line.">
+                  <option value="Listens with concentration.">
+                  <option value="Reads the poem in rhythm.">
+                  <option value="Reads and act accordingly">
+                  <option value="Reads the part in dialougs  by understanding .">
+                  <option value="Writes the answer of questions.">
+                  <option value="Takes part in language game .">
+                  <option value="Reads silently by understanding .">
+                  <option value="Recites with enjoyment poems and songs .">
+                  <option value="Gives responses in various contexts.">
+                  <option value="Identifies commonly used words .">
+                  <option value="Rearranges the story events .">
+                  <option value="Enjoys the rhythm and understand .">
+                  <option value="Takes the dictation of familiar words .">
+                  <option value="Reads english daily newspaper .">
+                  
+                  
+            </datalist><br>
+            <div id="wrapper3">
+  
+            </div>
+           
+  
+          </td>
+        </tr>
+        <tr>
+          <td>गणित<br></td>
+          <td>
+  
+            <input class="a" list="maths" name="mth1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="maths" name="mth2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="maths" name="mth3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="maths">
+              <option value="maths">
+                <option value= दिलेल्या&nbspकोणत्याही&nbspसंख्येचे&nbspवाचन&nbspकरू&nbspशकतो. >
+                  <option value= संख्यांचा&nbspक्रम&nbspअचूकपणे&nbspलावतो. >
+                  <option value= रोमन&nbspसंख्याचिन्हे&nbspअचूकपणे&nbspसांगतो. >
+                  <option value= आंतरराष्ट्रीय&nbspसंख्याचिन्हे&nbspअचूकपणे&nbspओळखतो. >
+                  <option value= सहा&nbspव&nbspसात&nbspअंकी&nbspसंख्याचिन्हे&nbspओळखतो. >
+                  <option value= संख्याचे&nbspअक्षरी&nbspव&nbspअंकी&nbspलेखन&nbspअचूकपणे&nbspकरतो. >
+                  <option value= कोटीपर्यंतच्या&nbspसंख्या&nbspअचूक&nbspसांगतो. >
+                  <option value= सहा&nbspव&nbspसात&nbspअंकी&nbspबेरीज&nbspव&nbspवजाबाकी&nbspअचूक&nbspसोडवतो. >
+                  <option value= बेरीज&nbspव&nbspवजाबाकीची&nbspशाब्दिक&nbspउदाहरणे&nbspसोडोवतो. >
+                  <option value= दिलेल्या&nbspसंख्येला&nbspतीन&nbspअंकी&nbspसंख्येपर्यंत&nbspगुणण्याची&nbspक्रिया&nbspकरतो. >
+                  <option value= गुणाकाराची&nbspशाब्दिक&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= भागाकाराची&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= समच्छेद&nbspव&nbspभिन्नच्छेद&nbspअपूर्णांक&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= कोनमापकाच्या&nbspसहाय्याने&nbspकोन&nbspमोजतो. >
+                  <option value=  कोनमापकाच्या&nbspसहाय्याने&nbspकोन&nbspकाढतो. >
+                  <option value= कोनांचे&nbspप्रकार&nbspओळखतो. >
+                  <option value= कंपासच्या&nbspमदतीने&nbspवर्तुळ&nbspकाढतो. >
+                  <option value= वर्तुळावर&nbspजीवा&nbsp,व्यास&nbsp,त्रिज्या&nbspदाखवतो. >
+                  <option value= दिलेल्या&nbspसंख्येचे&nbspविभाजक&nbspसांगतो. >
+                  <option value= संख्या&nbspमूळ&nbspआहे&nbspकी&nbspसंयुकत&nbspते&nbspओळखतो. >
+                  <option value= दशांश&nbspअपूर्णांक&nbspवाचन&nbspव&nbspलेखन&nbspकरतो. >
+                  <option value=  दशांश&nbspअपूर्णांकांची&nbspबेरीज&nbspव&nbspवजाबाकी&nbspया&nbspक्रिया&nbspकरतो. >
+                  <option value= चोवीस&nbspताशी&nbspघड्याळ&nbspओळखतो. >
+                  <option value= घड्याळावर&nbspआधारित&nbspशाब्दिक&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= दिलेल्या&nbspमापाच्या&nbspआकृतीची&nbspपरिमिती&nbspकाढतो. >
+                  <option value= आलेख&nbspकागदाचा&nbspवापर&nbspकरून&nbspपरिमिती&nbspकाढतो. >
+                  <option value=  आलेख&nbspकागदाचा&nbspवापर&nbspकरून&nbspक्षेत्रफळ&nbspकाढतो. >
+                  <option value=  क्षेत्रफळाची&nbspसूत्रे&nbspसांगतो. >
+                  <option value= बिंदु&nbsp,रेषा&nbsp,रेषाखंड&nbsp,किरण&nbspयाविषयी&nbspमाहिती&nbspसांगतो. >
+                  <option value= चित्र&nbspपाहून&nbspचित्रातील&nbspआकृत्या&nbspओळखतो. >
+                  <option value= कंपासपेटीतील&nbspसाधनांची&nbspमाहिती&nbspसांगतो. >
+                  <option value= संख्यारेषेवर&nbspपूर्णांक&nbspसंख्या&nbspदाखवतो. >
+                  <option value= संख्यांचे&nbspऋण&nbspव&nbspधन&nbspसंख्या&nbspअसे&nbspवर्गीकरण&nbspकरतो. >
+                  <option value=  पूर्णांक&nbspसंख्यांची&nbspबेरीज&nbspकरतो. >
+                  <option value= अंशाधिक&nbspअपूर्णांकांचे&nbspपूर्णांकयुक्त&nbspअपूर्णांकात&nbspरूपांतर&nbspकरतो. >
+                  <option value= दशांश&nbspअपूर्णांकांची&nbspउदाहरणे&nbspअचूक&nbspसोडवतो. >
+                  <option value= स्तंभालेखाची&nbspमाहिती&nbspसांगतो. >
+                  <option value= आकृत्यांचे&nbspसममीत&nbspअक्ष&nbspदाखवतो. >
+                  <option value= विभाज्यतेच्या&nbspकसोट्या&nbspमाहिती&nbspसांगतो. >
+                  <option value= मसावी&nbsp,लसावी&nbspउदाहरणे&nbspसोडवितो. >
+                  <option value= गणिती&nbspक्रियांमधून&nbspसंख्या&nbspशोधून&nbspसमीकरण&nbspतयार&nbspकरतो. >
+                  <option value= संख्याचे&nbspगुणोत्तराचे&nbspप्रमाण&nbspअचूक&nbspकाढतो. >
+                  <option value= शेकडेवारीची&nbspमाहिती&nbspअपूर्णांकाच्या&nbspरूपात&nbspमांडतो. >
+                  <option value= शेकडेवारी&nbspविषयी&nbspमाहिती&nbspसांगतो. >
+                  <option value= माहितीच्या&nbspआधारे&nbspनफा&nbsp,तोटा&nbspउदाहरणे&nbspअचूक&nbspसोडवितो. >
+                  <option value=  नफा&nbsp,तोटा&nbspउदाहरणे&nbspअचूक&nbspसोडवितो. >
+                  <option value= त्रिकोणाचे&nbspगुणधर्म&nbspसांगतो. >
+                  <option value= भौमितिक&nbspरचना&nbspस्पष्ट&nbspकरतो. >
+                  <option value= त्रिमितीय&nbspविविध&nbspआकार&nbspकाढतो. >
+                  <option value= कोनदुभाजक&nbspकाढतो. >
+                  <option value= लांबदुभाजकाचे&nbspगुणधर्म&nbspसांगतो. >
+                  <option value= दिलेल्या&nbspमापवरून&nbspकोन&nbspकाढतो. >
+                  <option value= एकरूप&nbspकोन&nbspसंकल्पना&nbspसमजून&nbspसांगतो. >
+                  <option value=  पूर्णांक&nbspसंख्यांचा&nbspगुणाकार&nbspकरतो. >
+                  <option value=  पूर्णांक&nbspसंख्यांचा&nbspभागाकार&nbspकरतो. >
+                  <option value= जोडमूळ&nbspसंख्या&nbspओळखतो. >
+                  <option value= संख्याचे&nbspमूळ&nbspअवयव&nbspपाडतो. >
+                  <option value= एकरूप&nbspकोन&nbspव&nbspएकरूप&nbspरेषाखंड&nbspकाढतो. >
+                  <option value= दिलेल्या&nbspसंख्यांची&nbspमूळ&nbspअवयव&nbspपद्धतीने&nbspमसावी&nbspकाढतो. >
+                  <option value=  भागाकार&nbspपद्धतीने&nbspमसावी&nbspकाढतो. >
+                  <option value=  दिलेल्या&nbspसंख्यांची&nbspमूळ&nbspअवयव&nbspपद्धतीने&nbspलसावी&nbspकाढतो. >
+                  <option value= उभ्या&nbspमांडणीने&nbspलसावी&nbspकाढतो. >
+                  <option value= कोनावरील&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= विरुद्ध&nbspकोनांचे&nbspगुणधर्म&nbspसांगतो. >
+                  <option value= दिलेल्या&nbspआकृतीतील&nbspत्रिकोणांची&nbspसंख्या&nbspसांगतो. >
+                  <option value= परिमेय&nbspसंख्या&nbspम्हणजे&nbspकाय&nbspते&nbspसांगतो. >
+                  <option value=  परिमेय&nbspसंख्यावरील&nbspक्रिया&nbspकरतो. >
+                  <option value=  घातांकाचे&nbspनियम&nbspसांगतो. >
+                  <option value= घातांकावरील&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= पूर्ण&nbspसंख्यांचे&nbspवर्ग&nbspव&nbspवर्गमूळ&nbspकाढतो. >
+                  <option value= जोडस्तंभालेख&nbspकाढतो. >
+                  <option value=  जोडस्तंभालेखाचे&nbspवाचन&nbspकरतो. >
+                  <option value= विविध&nbspमाहितीवरून&nbspस्तंभालेख&nbspकाढतो. >
+                  <option value= बैजिक&nbspराशींवरील&nbspगणिती&nbspक्रिया&nbspकरतो. >
+                  <option value= सम&nbspव&nbspव्यस्त&nbspप्रमाणावरील&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= बँकेतील&nbspविविध&nbspखात्यांचे&nbspप्रकार&nbspसांगतो. >
+                  <option value= व्याजवरील&nbspविविध&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= वर्तुळाचे&nbspविविध&nbspभाग&nbspसांगतो. >
+                  <option value= क्षेत्रफळावरील&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value=  पूर्णांक&nbspसंख्यांचा&nbspलहान-मोठेपणा&nbspठरवतो. >
+                  <option value=  अपूर्णांकांची&nbspबेरीज&nbspकरतो. >
+                  <option value= चौकोनाचे&nbspवाचन&nbspव&nbspलेखन&nbspअचूक&nbspकरतो. >
+                  <option value= शाब्दिक&nbspसोपी&nbspउदाहरणे&nbspसोडवतो. >
+                  <option value= कोनांचे&nbspलघुकोन&nbsp,काटकोन&nbsp,विशालकोन&nbspहे&nbspप्रकार&nbspओळखतो. >
+                  <option value= संख्या&nbspवाचन&nbspकरतो. >
+                  <option value= लहान&nbspमोठ्या&nbspसंख्या&nbspओळखतो. >
+                  <option value= संख्याचा&nbspक्रम&nbspओळखतो. >
+                  <option value= संख्या&nbspचढत्या&nbspउतरत्या&nbspक्रमाने&nbspलिहितो. >
+                  <option value= बेरीज&nbsp,वजाबाकी&nbsp,गुणकार&nbsp,भागाकार&nbspक्रिया&nbspसमजून&nbspघेतो. >
+                  <option value= पाढे&nbspपाठांतर&nbspकरतो. >
+                  <option value= गुणाकाराने&nbspपाढे&nbspतयार&nbspकरतो. >
+                  <option value= संख्या&nbspअक्षरी&nbspलिहितो. >
+                  <option value= अक्षरी&nbspसंख्या&nbspअंकात&nbspमांडतो. >
+                  <option value= संख्याचे&nbspप्रकार&nbspसांगतो&nbspव&nbspवाचन&nbspकरतो. >
+                  <option value= संख्यावरील&nbspमूलभूत&nbspक्रिया&nbspबरोबर&nbspकरतो. >
+                  <option value= तोंडी&nbspउदाहरणाचे&nbspअचूक&nbspउत्तर&nbspदेतो. >
+                  <option value= संख्यारेषेवरील&nbspअंकाची&nbspकिंमत&nbspसांगतो. >
+                  <option value= विविध&nbspभौमितिक&nbspसंबोध&nbspसमजून&nbspघेतो. >
+                  <option value= विविध&nbspभौमितिक&nbspरचना&nbspप्रमाणबद्ध&nbspकाढतो. >
+                  <option value= भौमितिक&nbspआकृत्याचे&nbspगुणधर्म&nbspसांगतो. >
+                  <option value= गणितीय&nbspचिन्हे&nbspओळखतो. >
+                  <option value= चिन्हाचा&nbspउदाहरणात&nbspयोग्य&nbspवापर&nbspकरून&nbspउदाहरण&nbspसोडवितो. >
+                  <option value= गणितातील&nbspसूत्रे&nbspसमजून&nbspघेतो. >
+                  <option value= सूत्रात&nbspकिंमती&nbspभरून&nbspउदाहरण&nbspसोडवितो. >
+                  <option value=  भौमितिक&nbspआकृत्याची&nbspपरिमिती&nbspकाढतो. >
+                  <option value= भौमितिक&nbspआकृत्याचे&nbspक्षेत्रफळ&nbspअचूक&nbspकाढतो. >
+                  <option value= विविध&nbspपरिमाणे&nbspसमजून&nbspघेतो. >
+                  <option value= परिमाणाचे&nbspउदाहरण&nbspसोडविताना&nbspयोग्य&nbspपरिमाणात&nbspरूपांतर&nbspकरतो. >
+                  <option value= विविध&nbspराशिची&nbspएकके&nbspसांगतो. >
+                  <option value= विविध&nbspआकाराचे&nbspपृष्ठफळ&nbspव&nbspघनफळ&nbspसांगतो. >
+                  <option value= उदाहरणे&nbsगतीने&nbspसोडवितो. >
+                  <option value= आलेखाचे&nbspवाचन&nbspकरतो. >
+                  <option value= आलेखावरील&nbspमाहिती&nbspसमजून&nbspघेऊन&nbspअचूक&nbspउत्तरे&nbspदेतो. >
+                  <option value= दिलेल्या&nbspमाहितीवरून&nbspआलेख&nbspकाढतो. >
+                  <option value= संख्यातील&nbspअंकाची&nbspस्थानिक&nbspकिंमत&nbspअचूक&nbspसांगतो. >
+                  <option value= संख्या&nbspविस्तारीत&nbspरूपात&nbspलिहितो. >
+                  <option value= समीकरणावर&nbspआधारीत&nbspसोपी&nbspशाब्दिक&nbspउदाहरणे&nbspसोडवितो. >
+                  <option value= अक्षरी&nbspउदाहरणे&nbspसमजून&nbspघेऊन&nbspसमीकरण&nbspमांडतो. >
+                  <option value= क्रमबद्ध&nbspमांडणी&nbspकरून&nbspउदाहरण&nbspसोडवितो. >
+                  <option value= थोर&nbspगणिततज्ञाविषयी&nbspमाहिती&nbspमिळवितो. >
+                  <option value= उदाहरण&nbspसोडविण्यासाठी&nbspविविध&nbspक्लृप्त्याचा&nbspवापर&nbspकरतो. >
+                  <option value= दैनंदिन&nbspजीवनात&nbspव&nbspव्यवहारात&nbspगणिताचा&nbspवापर&nbspकरतो. >
+                  <option value= गणितीय&nbspकोडी&nbspसोडवितो. >
+                  <option value= सारणी&nbspव&nbspतक्ता&nbspतयार&nbspकरतो . >
+                  सर्वसाधारण विद्यार्थ्यांसाठी गणित
+                  <option value= दिलेल्या&nbspमापावरून&nbspकोन&nbspकाढण्याचा&nbspप्रयत्न&nbspकरतो. >
+                  <option value=  पूर्णांक&nbspसंख्यांवरील&nbspगणिती&nbspक्रिया&nbspकरतो. >
+                  <option value= संख्याचे&nbspमूळ&nbspअवयव&nbspपाडण्याचा&nbspप्रयत्न&nbspकरतो. >
+                  <option value= दिलेल्या&nbspसोप्या&nbspसंख्यांचा&nbspलसावी&nbspकाढतो . >
+                  <option value=  दिलेल्या&nbspसोप्या&nbspसंख्यांचा&nbspमसावी&nbspकाढतो. >
+                  <option value= स्तंभालेख&nbspकाढण्याचा&nbspप्रयत्न&nbspकरतो. >
+                  <option value= आकृतीवरून&nbspनावे&nbspलिहितो. >
+                  
+              
+            </datalist><br>
+            <div id="wrapper4">
+  
+            </div>
+            
+  
+          </td>
+        </tr>
+        <tr>
+          <td>सा.विज्ञान<br></td>
+          <td>
+  
+            <input class="a" list="science" name="sv1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="science" name="sv2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="science" name="sv3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="science">
+              <option value="science">
+                <option value= विज्ञान&nbspव&nbspतंत्रज्ञानाचे&nbspमहत्व&nbspजाणतो. >
+                  <option value= विज्ञानाचा&nbspआपणास&nbspहोणारा&nbspफायदा&nbspसांगतो. >
+                  <option value= आधुनिक&nbspशोधाची&nbspमाहिती&nbspघेतो. >
+                  <option value= आधुनिक&nbspतंत्रज्ञान&nbspव&nbspउपकरणे&nbspयांचे&nbspफायदे&nbspस्पष्ट&nbspकरतो. >
+                  <option value= वनस्पती,&nbspप्राणी&nbspव&nbspमानव&nbspयांचे&nbspपरस्परावलंबन&nbspसांगतो. >
+                  <option value= विविध&nbspपदार्थाचे&nbspगुणधर्म&nbspसांगतो. >
+                  <option value= वैज्ञानिक&nbspराशीची&nbspएकके&nbspसांगतो. >
+                  <option value= विविध&nbspप्रकारच्या&nbspबलाची&nbspमाहिती&nbspसांगतो. >
+                  <option value= चुंबकीय&nbspव&nbspअचुंबकीय&nbspपदार्थ&nbspओळखतो. >
+                  <option value= धातू&nbspव&nbspअधातू&nbspसांगतो. >
+                  <option value= नैसर्गिक&nbspघटनामधील&nbspकार्यकारणभाव&nbspलक्षात&nbspघेतो. >
+                  <option value= भौतिक&nbspराशीचा&nbspदैनंदिन&nbspजीवनात&nbspवापर&nbspकरतो. >
+                  <option value= मानवी&nbspजीवनात&nbspविज्ञानाची&nbspभूमिका&nbspस्पष्ट&nbspकरतो. >
+                  <option value= जैविक-अजैविक&nbspघटकाचे&nbspवर्गीकरण&nbspकरतो. >
+                  <option value= सजीव&nbspव&nbspनिर्जीव&nbspवर्गीकरण&nbspकरतो. >
+                  <option value= मिश्रणातील&nbspपदार्थ&nbspवेगळे&nbspकरण्याचे&nbspप्रयोग&nbspकरतो. >
+                  <option value= .प्रथमोपचाराची&nbspमाहिती&nbspसांगतो >
+                  <option value= परिसरात&nbspघडणार्‍या&nbspघटनांची&nbspमाहिती&nbspघेतो. >
+                  <option value= अवकाशीय&nbspघटना&nbspसमजून&nbspघेतो&nbsp. >
+                  <option value= वैज्ञानिक&nbspशोध&nbspव&nbspतंत्रज्ञानामुळे&nbspझालेली&nbspप्रगती&nbspसांगतो. >
+                  <option value= वैज्ञानिक&nbspसोप्या&nbspप्रतिकृती&nbspतयार&nbspकरतो. >
+                  <option value= प्रयोगाच्या&nbspसाहित्याची&nbspमांडणी&nbspकरतो. >
+                  <option value= प्रयोगाचे&nbspसाहित्य&nbspकाळजीपूर्वक&nbspहाताळतो. >
+                  <option value= प्रयोगाची&nbspअचूक&nbspआकृत्या&nbspकाढतो. >
+                  <option value= धोकादायक&nbspवस्तु&nbspहाताळताना&nbspविशेष&nbspकळाजी&nbspघेतो. >
+                  <option value= पदार्थ्याच्या&nbspसंज्ञा&nbspसांगतो. >
+                  <option value= बदलाचे&nbspप्रकार&nbspसांगतो. >
+                  <option value= बदलाचे&nbspवेगवेगळ्या&nbspप्रकारात&nbspवर्गीकरण&nbspकरतो. >
+                  <option value= पारीभाषिक&nbspशब्दांचे&nbspअर्थ&nbspसमजून&nbspघेतो. >
+                  <option value= नैसर्गिक&nbspसाधनसंपत्तीचे&nbspमहत्त्व&nbspसांगतो. >
+                  <option value= समतोल&nbspआहाराचे&nbspमहत्व&nbspसांगतो. >
+                  <option value= रोगाची&nbspमाहिती&nbspघेतो&nbspव&nbspलक्षणे&nbspसांगतो. >
+                  <option value= रोगावरील&nbspउपायाची&nbspमाहिती&nbspकरून&nbspघेतो. >
+                  <option value= प्रदूषणाचे&nbspप्रकार&nbspसांगतो. >
+                  <option value= प्रदूषणाचे&nbspदुष्परिणाम&nbspसांगतो. >
+                  <option value= प्रदूषण&nbspटाळण्याचे&nbspउपाय&nbspसांगतो. >
+                  <option value= वृक्ष&nbspसंवर्धंनासाठी&nbspकार्यशील&nbspराहतो. >
+                  <option value= पाण्याचे&nbspमहत्व&nbspजाणतो. >
+                  <option value= पिके,&nbspहवामान&nbsp,जमीन&nbspइ&nbspविषयी&nbspमाहिती&nbspसंकलित&nbspकरतो. >
+                  <option value= नैसर्गिक&nbspआपत्तीची&nbspमाहिती&nbspकरून&nbspघेतो. >
+                  <option value= वैज्ञानिक&nbspदृष्टीकोन&nbspजोपासतो. >
+                  <option value= पाणी&nbspसंवर्धंनासाठी&nbspउपाय&nbspसमजून&nbspघेतो. >
+                  <option value= अंधश्रद्धा&nbspव&nbspगैरसमजुतीबाबत&nbspजनजागृती&nbspकरतो. >
+                  <option value= विज्ञानातील&nbspगंमतीजंमती&nbspसांगतो. >
+                  <option value= टाकाऊ&nbspपासून&nbspटिकाऊ&nbspवस्तु&nbspतयार&nbspकरतो. >
+                  <option value= वैज्ञानिक&nbspव&nbspसंशोधक&nbspयांची&nbspपुस्तके&nbspवाचतो . >
+                  
+             
+            </datalist><br>
+            <div id="wrapper5">
+  
+            </div>
+           
+  
+          </td>
+        </tr>
+        <tr>
+          <td>सामाजिक शास्त्रे</td>
+          <td>
+  
+            <input class="a" list="history" name="ss1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="history" name="ss2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="history" name="ss3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="history">
+              <option value="history">
+                <option value= ऐतिहासिक&nbspस्थळाची&nbspमाहिती&nbspसांगतो. >
+                  <option value= सुचवलेल्या&nbspघटना&nbspअचूक&nbspआणि&nbspस्‍पष्‍ट&nbspशब्‍दात&nbspसांगतो. >
+                  <option value= घटना&nbspअगदी&nbspजशीच्या&nbspतशी&nbspसांगतो. >
+                  <option value= प्रश्न&nbspलक्ष&nbspदेऊन&nbspऐकतो&nbspव&nbspउत्तरे&nbspदेतो. >
+                  <option value= भौगोलिक&nbspपरीस्थिती&nbspलोकजीवन&nbspह्यावर&nbspमाहिती&nbspदेतो. >
+                  <option value= विविध&nbspभौगोलिक&nbspजीवनाची&nbspमाहिती&nbspदेतो. >
+                  <option value= सहलीच्या&nbspनियोजनासाठी&nbspनकाशाचा&nbspवापर&nbspकरतो. >
+                  <option value= नकाशावरून&nbspदिशा&nbspव&nbspठिकाण&nbspसांगतो. >
+                  <option value= स्‍वाध्‍यायाची&nbspपरीणामकारक&nbspउत्‍तरे&nbspदेतो. >
+                  <option value= जुना&nbspकाळ&nbspव&nbspचालू&nbspकाळ&nbspह्याबाबत&nbspस्पष्टीकरण&nbspदेतो. >
+                  <option value= ऐतिहासिेक&nbspवस्‍तूंचा&nbspसंग्रह&nbspकरतो. >
+                  <option value= प्राचीन&nbspमानवी&nbspजीवन&nbspआणि&nbspव्यवहाराबाबत&nbspमाहिती&nbspदेतो. >
+                  <option value= प्राचीन&nbspकाळातील&nbspघडलेल्या&nbspघटना&nbspजाणतो. >
+                  <option value= संविधान&nbspव&nbspप्रतिज्ञा&nbspम्हणतो. >
+                  <option value= समाजसुधारकाची&nbspमाहिती&nbspसांगतो. >
+                  <option value= संविधानाचे&nbspमहत्व&nbspसांगतो >
+                  <option value= थोर&nbspनेत्याची&nbspमाहिती&nbspसांगतो. >
+                  <option value= ऐतिहासिक&nbspघटनांची&nbspइसवी&nbspसन&nbspसांगतो. >
+                  <option value= नागरिकाचे&nbspमूलभूत&nbspअधिकार&nbspसांगतो . >
+                  <option value= प्रादेशिक&nbspलोकजीवनाची&nbspमाहिती&nbspघेतो. >
+                  <option value= नकाशे&nbspकाढतो&nbspव&nbspभरतो. >
+                  <option value= नकाशा&nbspवाचन&nbspकरतो. >
+                  <option value= नकाशातील&nbspस्थाने&nbspव&nbspठिकाणे&nbspदर्शवितो. >
+                  <option value= नैसर्गिक&nbspआपत्तीची&nbspमाहिती&nbspघेतो. >
+                  <option value= पृथ्वी&nbspगोलाचा&nbspअभ्यास&nbspकरतो. >
+                  <option value= लोकसंख्येचे&nbspदुष्परिणाम&nbspसांगतो. >
+                  <option value= क्षेत्रभेटीत&nbspसहभागी&nbspहोतो. >
+                  <option value= सहलीतील&nbspनिरीक्षणाची&nbspनोंद&nbspकरतो. >
+                  <option value= वृक्षारोपण&nbspव&nbspसंवर्धन&nbspकरतो. >
+                  <option value= राष्ट्रीय&nbspसंपत्तीची&nbspजोपासना&nbspकरतो. >
+                  <option value= नैसर्गिक&nbspसाधनसंपत्तीचा&nbspकाटकसरीने&nbspवापर&nbspकरतो. >
+                  <option value= पर्यावरण&nbspसंवर्धंनासाठी&nbspक्रियाशील&nbspभाग&nbspघेतो. >
+                  <option value= पर्यावरण&nbspदुष्परिणामाची&nbspकारणे&nbspसमजून&nbspघेतो. >
+                  <option value= ऐतिहासिक&nbspव&nbspभौगोलिक&nbspस्थळाची&nbspमाहिती&nbspघेतो . >
+                  
+              
+            </datalist><br>
+            <div id="wrapper6">
+  
+            </div>
+            
+  
+          </td>
+        </tr>
+        <tr>
+          <td>कला<br></td>
+          <td>
+  
+            <input class="a" list="skill" name="k1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="skill" name="k2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="skill" name="k3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="skill">
+              <option value="skill">
+                <option value= कलेचे&nbspविविध&nbspप्रकार&nbspसमजून&nbspघेतो. >
+                  <option value= मनातील&nbspभाव&nbspव&nbspकल्पना&nbspचित्रात&nbspरेखाटतो . >
+                  <option value= चित्रात&nbspरंग&nbspभरताना&nbspरंगसंगती&nbspराखतो. >
+                  <option value= चित्रे&nbspसुंदर&nbspकाढतो. >
+                  <option value= प्रमाणबद्ध&nbspरेखाटन&nbspकरतो. >
+                  <option value= मुक्तहस्त&nbspकलाकृतीची&nbspरचना&nbspकरतो. >
+                  <option value= रंगाच्या&nbspछटातील&nbspफरक&nbspओळखतो. >
+                  <option value= चित्राच्या&nbspप्रदर्शनात&nbspसहभाग&nbspघेतो. >
+                  <option value= चित्राच्या&nbspस्पर्धेत&nbspसहभाग&nbspघेतो. >
+                  <option value= कलात्मक&nbspदृष्टीकोन&nbspठेवतो. >
+                  <option value= विविध&nbspकलाप्रकारातील&nbspकौशल्य&nbspप्राप्त&nbspकरतो. >
+                  <option value= कलेविषयी&nbspमनापासून&nbspप्रेम&nbspबाळगतो. >
+                  <option value= वर्ग&nbspसजावट&nbspकरतो. >
+                  <option value= मातीपासून&nbspविविध&nbspआकार&nbspबनवितो. >
+                  
+
+             
+            </datalist><br>
+            <div id="wrapper7">
+  
+            </div>
+  
+          </td>
+        </tr>
+        <tr>
+          <td>कार्या<br></td>
+          <td>
+  
+            <input class="a" list="work" name="kr1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="work" name="kr2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="work" name="kr3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="work">
+              <option value="work">
+                <option value= कार्यशिक्षणाचे&nbspमहत्व&nbspसमजून&nbspघेतो. >
+                  <option value= कृती&nbsp,उपक्रम&nbspआवडीने&nbspकरतो. >
+                  <option value= उपक्रमात&nbspव&nbspकृतीत&nbspनाविन्य&nbspनिर्माण&nbspकरतो. >
+                  <option value= तयार&nbspकेलेल्या&nbspवस्तूचे&nbsप्रदर्शन&nbspमांडतो. >
+                  <option value= परिसर&nbspस्वच्छ&nbspठेवतो. >
+                  <option value= नैसर्गिक&nbspआपत्तीच्या&nbspवेळी&nbspमदत&nbspगोळा&nbspकरतो. >
+                  <option value= कृती&nbspकरताना&nbspनवीन&nbspतंत्राचा&nbspव&nbspतंत्रज्ञानाचा&nbspवापर&nbspकरतो. >
+                  <option value= आधुनिक&nbspसाधनाचा&nbspवापर&nbspकरतो. >
+                  <option value= व्यावसायिक&nbspकौशल्ये&nbspप्राप्त&nbspकरण्याचा&nbspप्रयत्न&nbspकरतो. >
+                  <option value= चर्चेत&nbspसहभागी&nbspहोतो. >
+                  <option value= समस्या&nbspनिराकरणासाठी&nbspउपाय&nbspशोधतो. >
+                  <option value= विविध&nbspमुल्याची&nbspजोपासना&nbspकरतो. >
+                  <option value= साहित्य&nbsp,साधने&nbspवापराबाबत&nbspकौशल्य&nbspप्राप्त&nbspकरतो. >
+                  <option value= शिक्षकाचे&nbspसहकार्य&nbspघेतो. >
+                  <option value= आत्मविश्वासाने&nbspकृती&nbspकरतो. >
+                  <option value= समजशील&nbspवर्तन&nbspकरतो. >
+                  <option value= ज्ञानाचा&nbspउपयोग&nbspउपजीवेकेसाठी&nbspकरतो. >
+                  <option value= दिलेले&nbspप्रात्यक्षिक&nbspपूर्ण&nbspकरतो. >
+                  <option value= .प्रकल्प&nbspस्वत:च्या&nbspसहभागातून&nbspपूर्ण&nbspकरतो >
+                  <option value= प्रकल्पाचे&nbspसादरीकरण&nbspचांगले&nbspकरतो . >
+                  
+              
+            </datalist><br>
+            <div id="wrapper8">
+  
+            </div>
+            
+  
+          </td>
+        </tr>
+        <tr>
+          <td>शा.शिक्षण <br></td>
+          <td>
+  
+            <input class="a" list="social-science" name="ssk1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="social-science" name="ssk2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="social-science" name="ssk3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="social-science">
+              <option value="social-science">
+                <option value= खेळात&nbspउस्फूर्तपणे&nbspभाग&nbspघेतो. >
+                  <option value= आरोग्यासाठी&nbspनियमित&nbspव्यायाम&nbspकरतो. >
+                  <option value= तालबद्ध&nbspहालचाली&nbspकरतो. >
+                  <option value= गटाचे&nbspनेतृत्व&nbspकरतो. >
+                  <option value= खेळ&nbspव&nbspशारीरिक&nbspहालचालीतून&nbspआनंद&nbspमिळवतो. >
+                  <option value= गटातील&nbspसहकार्‍यांना&nbspमार्गदर्शन&nbspकरतो. >
+                  <option value= इतरांशी&nbspखिलाडू&nbspवृत्तीने&nbspवागतो. >
+                  <option value= विविध&nbspखेळात&nbspव&nbspस्पर्धेत&nbspभाग&nbspघेतो. >
+                  <option value= खेळाची&nbspविविध&nbspकौशल्ये&nbspआत्मसात&nbspकरतो. >
+                  <option value= मैदानावरील&nbspविविध&nbspकामे&nbspआवडीने&nbspकरतो. >
+                  <option value= क्रिडागंणाचे&nbspमोजमापे&nbspलक्षात&nbspघेऊन&nbspमैदानाची&nbspआखणी&nbspकरतो. >
+                  <option value= आरोग्यदायी&nbspसवयीचे&nbspपालन&nbspकरतो. >
+                  <option value= मनोरंजक&nbspखेळात&nbspसहभागी&nbspहोतो. >
+                  <option value= शारीरिक&nbspश्रम&nbspआनंदाने&nbspकरतो. >
+                  <option value= मैदानाची&nbspस्वच्छता&nbspकरतो. >
+                  <option value= जय&nbspपराजय&nbspआनंदाने&nbspस्वीकारतो. >
+                  <option value= पंचाच्या&nbspनिर्णयाचे&nbspआदर&nbspकरतो. >
+                  <option value= खेळातून&nbspराष्ट्रभक्ती&nbspमुल्याची&nbspजोपासना&nbspकरतो. >
+                  <option value= श्रेष्ठ&nbspखेळाडूंची&nbspमाहिती&nbspकरून&nbspघेतो. >
+                  <option value= शिस्तीचे&nbspपालन&nbspकरतो. >
+                  <option value= विविध&nbspराष्ट्रीय&nbspव&nbspआंतरराष्ट्रीय&nbspखेळाची&nbspमाहिती&nbspकरून&nbspघेतो. >
+                  <option value= विविध&nbspयोगासने&nbspव&nbspकवायत&nbspप्रकाराची&nbspमाहिती&nbspघेतो. >
+                  <option value= विविध&nbspयोगासने&nbspव&nbspकवायत&nbspप्रकार&nbspसादर&nbspकरतो. >
+                  <option value= कलेविषयी&nbspरुचि&nbspठेवतो. >
+                  <option value= दैनंदिन&nbspशालेय&nbspखेळात&nbspभाग&nbspघेतो. >
+                  <option value= आरोग्यासाठी&nbspव्यायामाचे&nbspमहत्व&nbspसांगतो. >
+                  
+             
+            </datalist><br>
+            <div id="wrapper9">
+  
+            </div>
+            
+  
+          </td>
+        </tr>
+        <tr>
+          <td>विशेष  प्रगती <br></td>
+          <td>
+  
+            <input class="a" list="hb" name="hb1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="hb" name="hb2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="hb" name="hb3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="hb">
+              <option value="hb">
+                <option value= शालेय&nbspशिस्त&nbspआत्मसात&nbspकरतो. >
+                  <option value= दररोज&nbspशाळेत&nbspउपस्थित&nbspराहतो. >
+                  <option value= वेळेवर&nbspअभ्यास&nbspपूर्ण&nbspकरतो. >
+                  <option value= गृहपाठ&nbspवेळेत&nbspपूर्ण&nbspकरतो. >
+                  <option value= स्वाध्यायपुस्तिका&nbspस्वत:&nbspपूर्ण&nbspकरतो. >
+                  <option value= वाचन&nbspस्पष्ट&nbspव&nbspशुद्ध&nbspकरतो. >
+                  <option value= कविता&nbspपाठांतर&nbspकरतो,&nbspसुरात&nbspगातो. >
+                  <option value= इंग्रजी&nbspशब्दाचा&nbspउच्चार&nbspशुद्ध&nbspकरतो. >
+                  <option value= ऐतिहासिक&nbspमाहिती&nbspमिळवतो. >
+                  <option value= चित्रकलेत&nbspविशेष&nbspप्रगती. >
+                  <option value= दैनंदीन&nbspव्यवहारात&nbspज्ञानाचा&nbspउपयोग&nbspकरतो. >
+                  <option value= गणितातील&nbspक्रिया&nbspअचूक&nbspकरतो. >
+                  <option value= शिक्षकाविषयी&nbspआदर&nbspबाळगतो. >
+                  <option value= शालेय&nbspउपक्रमात&nbspसहभाग&nbspघेतो. >
+                  <option value= सांस्कृतिक&nbspकार्यक्रमात&nbspसहभाग&nbspघेतो. >
+                  <option value= प्रयोगाचे&nbspनिरीक्षण&nbspलक्षपूर्वक&nbspकरतो. >
+                  <option value= खेळ&nbspउत्तम&nbspप्रकारे&nbspखेळतो. >
+                  <option value= विविध&nbspखेळ&nbspप्रकारात&nbspभाग&nbspघेतो. >
+                  <option value= समानार्थी&nbspशब्दांचा&nbspसंग्रह&nbspकरतो. >
+                  <option value= दिलेले&nbspकाम&nbspवेळेवर&nbspपूर्ण&nbspकरतो. >
+                  <option value= प्रयोगाची&nbspमांडणी&nbspअचूक&nbspकरतो. >
+                  <option value= चित्रे&nbspछान&nbspकाढतो&nbspव&nbspरंगवतो. >
+                  <option value= उपक्रमामध्ये&nbspउत्स्फूर्तपणे&nbspसहभाग&nbspघेतो. >
+                  <option value= प्रयोगवहीत&nbspआकृत्या&nbspछान&nbspकाढतो. >
+                  <option value= दिलेला&nbspअभ्यास&nbspवेळेत&nbspपूर्ण&nbspकरतो. >
+                  <option value= स्वाध्याय&nbspस्वत:&nbspसमजून&nbspसोडवितो. >
+                  <option value= शाळेत&nbspनियमित&nbspउपस्थित&nbspराहतो . >
+                  <option value= वाचन&nbspस्पष्ट&nbspउच्चारात&nbspकरतो. >
+                  <option value= शब्दांचे&nbspवाचन&nbspस्पष्ट&nbspकरतो. >
+                  <option value= संभाषणात&nbspहिंदी&nbspभाषेचा&nbspवापर&nbspकरतो. >
+                  <option value= कोणत्याही&nbspखेळात&nbspउस्फूर्तपणे&nbspभाग&nbspघेतो. >
+                  <option value= वाचन&nbspस्पष्ट&nbspव&nbspअचूक&nbspकरतो. >
+                  <option value= चित्राचे&nbspनिरीक्षण&nbspकरतो&nbspव&nbspवर्णन&nbspसांगतो. >
+                  <option value= नियमित&nbspशुद्धलेखन&nbspकरतो. >
+                  <option value= शालेय&nbspउपक्रमात&nbspसहभाग&nbspघेतो. >
+                  <option value= स्वाध्याय&nbspवेळेवर&nbspपूर्ण&nbspकरतो. >
+                  <option value= कार्यानुभवातील&nbspवस्तू&nbspबनवितो. >
+                  <option value= तोंडी&nbspप्रश्नांची&nbspउत्तरे&nbspसांगतो. >
+                  <option value= गणितातील&nbspउदाहरणे&nbspअचूक&nbspसोडवितो. >
+                  <option value= प्रयोगाची&nbspमांडणी&nbspव्यवस्थित&nbspकरतो. >
+                  <option value= सुविचार&nbspव&nbspबोधकथा&nbspसंग्रह&nbspकरतो. >
+                  <option value= हिंदीतून&nbspपत्र&nbspलिहितो. >
+                  <option value= परिपाठात&nbspसहभाग&nbspघेते. >
+                  <option value= इंग्रजी&nbspशब्दांचा&nbspउच्चार&nbspस्पष्ट&nbspकरते. >
+                  <option value= क्रीडा&nbspस्पर्धेत&nbspसहभाग&nbspघेते. >
+                  <option value= मुहावर्‍याचा&nbspवाक्यात&nbspउपयोग&nbspकरते. >
+                  <option value= प्रयोगाची&nbspकृती&nbspअचूक&nbspकरते. >
+                  <option value= आकृत्या&nbspसुबक&nbspकाढते. >
+                  <option value= वर्गाचे&nbspनेतृत्व&nbspचांगल्याप्रकारे&nbspकरतो. >
+                  <option value= वर्तमान&nbspपत्राची&nbspकात्रणे&nbspसंग्रहीत&nbspकरते. >
+                  <option value= शाळाबाह्य&nbspपरीक्षेत&nbspसहभाग&nbspघेतो. >
+                  <option value= सांस्कृतिक&nbspकार्यात&nbspसहभागी&nbspहोते. >
+                  <option value= व्यवहार&nbspज्ञान&nbspचांगले&nbspआहे. >
+                  <option value= अभ्यासात&nbspसातत्य&nbspआहे. >
+                  <option value= वर्गात&nbspक्रियाशील&nbspअसते. >
+                  <option value= अभ्यासात&nbspनियमितता&nbspआहे. >
+                  <option value= वर्गात&nbspलक्ष&nbspदेवून&nbspऐकतो. >
+                  <option value= प्रश्नांची&nbspउत्तरे&nbspविचारपूर्वक&nbspव&nbspअचूक&nbspदेतो. >
+                  <option value= गटकार्यात&nbspव&nbspपरिपाठात&nbspउस्फूर्त&nbspसहभाग&nbspघेतो. >
+                  <option value= अभ्यासात&nbspसातत्य&nbspआहे. >
+                  <option value= अक्षर&nbspवळणदार&nbspकाढण्याचा&nbspप्रयत्न&nbspकरतो. >
+                  <option value= उपक्रम&nbspव&nbspस्वाध्याय&nbspवेळेत&nbspपूर्ण&nbspकरतो. >
+                  <option value= वर्गात&nbspनियमित&nbspहजर&nbspअसतो . >
+                  <option value= स्वाध्याय&nbspवेळेत&nbspपूर्ण&nbspकरतो. >
+                  <option value= खेळण्यात&nbspविशेष&nbspप्रगती. >
+                  <option value= Activity&nbspमध्ये&nbspसहभाग&nbspघेतो. >
+                  <option value= सर्व&nbspविषयाचा&nbspअभ्यास&nbspउत्तम. >
+                  <option value= विविध&nbspप्रकारची&nbspचित्रे&nbspकाढते. >
+                  <option value= इंग्रजी&nbspहिंदी&nbspवाचन&nbspसराव&nbspकरावा. >
+                  
+             
+            </datalist><br>
+            <div id="wrapper10">
+  
+            </div>
+            
+  
+          </td>
+        </tr>
+        <tr>
+          <td>आवड/ छंद<br></td>
+          <td>
+  
+            <input class="a" list="vp" name="vp1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="vp" name="vp2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="vp" name="vp3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="vp">
+              <option value="vp">
+                <option value= चित्रे&nbspकाढतो. >
+                  <option value= गोष्ट&nbspसांगतो. >
+                  <option value= गाणी&nbsp-कविता&nbspम्हणतो. >
+                  <option value= नृत्य&nbsp,अभिनय&nbsp,नाटयीकरण&nbspकरतो. >
+                  <option value= खेळात&nbspसहभागी&nbspहोतो. >
+                  <option value= अवांतर&nbspवाचन&nbspकरणे. >
+                  <option value= गणिती&nbspआकडेमोड&nbspकरतो. >
+                  <option value= कार्यानुभवातील&nbspवस्तु&nbspबनवितो. >
+                  <option value= स्पर्धा&nbspपरीक्षामध्ये&nbspसहभागी&nbspहोतो. >
+                  <option value= कथा&nbsp,कविता&nbsp,संवाद&nbspलेखन&nbspकरतो. >
+                  <option value= वाचन&nbspकरणे. >
+                  <option value= लेखन&nbspकरणे. >
+                  <option value= खेळणे. >
+                  <option value= पोहणे. >
+                  <option value= सायकल&nbspखेळणे. >
+                  <option value= चित्रे&nbspकाढणे. >
+                  <option value= गीत&nbspगायन. >
+                  <option value= संग्रह&nbspकरणे. >
+                  <option value= उपक्रम&nbspतयार&nbspकरणे. >
+                  <option value= प्रतिकृती&nbspबनवणे. >
+                  <option value= प्रयोग&nbspकरणे. >
+                  <option value= कार्यानुभवातील&nbspवस्तू&nbspतयार&nbspकरणे. >
+                  <option value= खो&nbspखो&nbspखेळणे. >
+                  <option value= क्रिकेट&nbspखेळणे. >
+                  <option value=  संगणक&nbspहाताळणे. >
+                  <option value= गोष्टी&nbspऐकणे. >
+                  <option value= गोष्टी&nbspवाचणे. >
+                  <option value= वाचन&nbspकरणे. >
+                  <option value=रांगोळी&nbspकाढणे  . >
+                  <option value= प्रवास&nbspकरणे. >
+                  <option value= नक्षिकाम. >
+                  <option value= व्यायाम&nbspकरणे. >
+                  <option value= संगणक. >
+                  <option value= नृत्य. >
+                  <option value= संगीत&nbspऐकणे. >
+                  
+             
+            </datalist><br>
+            <div id="wrapper11">
+  
+            </div>
+            
+  
+          </td>
+        </tr>
+        <tr>
+          <td>सुधारणा आवश्यक<br> </td>
+          <td>
+  
+            <input class="a" list="mis1" name="mis1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="mis1" name="mis2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="mis1" name="mis3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="mis1">
+              <option value="mis1">
+                <option value= वाचन,&nbspलेखनाकडे&nbspलक्ष&nbspद्यावे. >
+                  <option value= अभ्यासात&nbspसातत्य&nbspअसावे. >
+                  <option value= अवांतर&nbspवाचन&nbspकरावे. >
+                  <option value= शब्दांचे&nbspपाठांतर&nbspकरावे. >
+                  <option value= शब्दसंग्रह&nbspकरावा. >
+                  <option value= बेरजेत&nbspहातच्याकडे&nbspलक्ष&nbspद्यावे. >
+                  <option value= नियमित&nbspशुद्धलेखन&nbspलिहावे. >
+                  <option value= गुणाकारात&nbspमांडणी&nbspयोग्य&nbspकरावी. >
+                  <option value= खेळात&nbspसहभागी&nbspव्हावे. >
+                  <option value= संवाद&nbspकौशल्य&nbspवाढवावे. >
+                  <option value= परिपाठात&nbspसहभाग&nbspघ्यावा. >
+                  <option value= विज्ञानाचे&nbspप्रयोग&nbspकरून&nbspपहावे. >
+                  <option value= हिंदी&nbspभाषेचा&nbspउपयोग&nbspकरावा. >
+                  <option value= शालेय&nbspउपक्रमात&nbspसहभाग&nbspघ्यावा. >
+                  <option value= गटचर्चेत&nbspसहभाग&nbspघ्यावा. >
+                  <option value= चित्रकलेचा&nbspछंद&nbspजोपासावा. >
+                  <option value= वर्तमानपत्राचे&nbspनियमित&nbspवाचन&nbspकरावे. >
+                  <option value= संगणकाचा&nbspवापर&nbspकरावा. >
+                  <option value= प्रयोगामध्ये&nbspकृतीशील&nbspसहभाग&nbspअसावा. >
+                  <option value= गणित&nbspविषयाकडे&nbspलक्ष&nbspद्यावे. >
+                  <option value= गटकार्यात&nbspसहभाग&nbspवाढवावे. >
+                  <option value= गणितीक्रियाकडे&nbspलक्ष&nbspद्यावे. >
+                  <option value= हस्ताक्षरात&nbspसुधारणा&nbspकरावी. >
+                  <option value= विज्ञान&nbspप्रयोगात&nbspसहभाग&nbspअसावा. >
+                  <option value= इंग्रजी&nbspवाचन&nbspव&nbspलेखन&nbspसुधारावे. >
+                  <option value= इंग्रजी&nbspशब्दांचे&nbspपाठांतर&nbspकरावे. >
+                  <option value= इंग्रजी&nbspशब्दांचे&nbspसंग्रह&nbspव&nbspपाठांतर&nbspकरावे. >
+                  <option value= इंग्रजी&nbspवाचन&nbspव&nbspलेखन&nbspसराव&nbspकरावा. >
+                  <option value= शैक्षणिक&nbspचित्रांचा&nbspसंग्रह&nbspकरावा. >
+                  <option value= शुद्धलेखनामध्ये&nbspप्रगती&nbspकरावी. >
+                  <option value= शालेय&nbspपरिपाठात&nbspसहभाग&nbspअसावा. >
+                  <option value= उपक्रमामध्ये&nbspसहभाग&nbspअसावा. >
+                  <option value= लेखनातील&nbspचुका&nbspटाळाव्या. >
+                  <option value= नकाशा&nbspवाचनाचा&nbspसराव&nbspकरावा. >
+                  <option value=  उदाहरणे&nbspसोडविण्याचा&nbspसराव&nbspकरावा. >
+                  <option value= नियमित&nbspअभ्यासाची&nbspसवय&nbspलावावी. >
+                  <option value= नियमित&nbspउपस्थित&nbspराहावे. >
+                  <option value= जोडाक्षर&nbspवाचनाचा&nbspसराव&nbspकरावा. >
+                  <option value= वाचन&nbspव&nbspलेखनात&nbspसुधारणा&nbspकरावी. >
+                  <option value= अवांतर&nbspपुस्तकाचे&nbspवाचन&nbspकरावे. >
+                  <option value= प्रकल्प&nbspवेळेवर&nbspपूर्ण&nbspकरावे. >
+                  <option value= अक्षर&nbspसुधारणे&nbspआवश्यक. >
+                  <option value= भाषा&nbspविषयात&nbspप्रगती&nbspकरावी. >
+                  <option value= अक्षर&nbspवळणदार&nbspकाढावे. >
+                  <option value= गणित&nbspसूत्राचे&nbspपाठांतर&nbspकरावे. >
+                  <option value= स्वाध्याय&nbspवेळेत&nbspपूर्ण&nbspकरावे. >
+                  <option value= दैनंदीन&nbspउपस्थितीकडे&nbspलक्ष&nbspद्यावे. >
+                  <option value= गणिती&nbspक्रियाचा&nbspसराव&nbspकरा. >
+                  <option value= संवाद&nbspकौशल्य&nbspआत्मसात&nbspकरावे. >
+                  <option value= गणितातील&nbspमांडणी&nbspयोग्य&nbspकरावी. >
+                  <option value= शुद्धलेखनाकडे&nbspलक्ष&nbspद्यावे. >
+                  <option value= इंग्रजी&nbspशब्दसंग्रह&nbspवाढविणे. >
+                  
+             
+            </datalist><br>
+            <div id="wrapper12">
+  
+            </div>
+            
+  
+          </td>
+        </tr>
+        <tr>
+          <td>व्यक्तिमत्व गुणविशेष<br></td>
+          <td>
+  
+            <input class="a" list="mis2" name="miss1" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="mis2" name="miss2" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <input class="a" list="mis2" name="miss3" id="browser" style="display:table-cell; width:100% ; height: 100%;">
+            <datalist id="mis2">
+              <option value="mis2">
+                <option value= आपली&nbspमते&nbspमुद्देसुद,&nbspथोडक्यात&nbspमांडतो. >
+                  <option value= आपली&nbspमते&nbspठामपणे&nbspमांडतो. >
+                  <option value= कोणतेही&nbspकाम&nbspएकाग्रतेने&nbspकरतो. >
+                  <option value= कोणतेही&nbspकाम&nbspवेळेच्या&nbspवेळी&nbspपूर्ण&nbspकरतो. >
+                  <option value= आत्मविश्वासाने&nbspकाम&nbspकरतो. >
+                  <option value= इतरांपेक्षा&nbspवेगळ्या&nbspकल्पना/विचार&nbspकरतो. >
+                  <option value= जेथे&nbspजेथे&nbspसंधी&nbspमिळेल&nbspतेथे&nbspपुढाकार&nbspघेऊन&nbspकाम&nbspकरतो. >
+                  <option value= वैयक्तिक&nbspस्वच्छतेकडे&nbspसातत्याने&nbspलक्ष&nbspदेतो. >
+                  <option value= शिक्षकाच्या&nbspआज्ञेचे&nbspपालन&nbspकरतो. >
+                  <option value= स्वत:च्या&nbspआवडी-निवडी&nbspबाबत&nbspस्पष्टता&nbspआहे. >
+                  <option value= धाडसी&nbspवृत्ती&nbspदिसून&nbspयेते. >
+                  <option value= स्वत:ची&nbspचूक&nbspमोकळेपणाने&nbspमान्य&nbspकरतो. >
+                  <option value= गटात&nbspकाम&nbspकरताना&nbspसोबत्याची&nbspमते&nbspजाणून&nbspघेतो. >
+                  <option value= भेदभाव&nbspन&nbspकरता&nbspसर्वांमध्ये&nbspमिसळतो. >
+                  <option value= वर्ग,&nbspशाळा,&nbspपरिसर&nbspस्वच्छ&nbspठेवण्याचा&nbspप्रयत्न&nbspकरतो. >
+                  <option value= मित्रांना&nbspगरजेनुरूप&nbspसहकार्य&nbspकरतो. >
+                  <option value= मित्रांच्या&nbspसुखदु:खामध्ये&nbspसहभागी&nbspहोतो. >
+                  <option value= शाळेच्या&nbspनियमाचे&nbspपालन&nbspकरतो. >
+                  <option value= इतरांशी&nbspनम्रपणे&nbspवागतो. >
+                  <option value= नवीन&nbspगोष्ट&nbspसमजून&nbspघेण्याची&nbspजिज्ञासा&nbspदाखवतो. >
+                  <option value= नवनवीन&nbspगोष्टी&nbspशिकायला&nbspआवडतात. >
+                  <option value= उपक्रमामध्ये&nbspकृतीशील&nbspसहभाग&nbspघेतो. >
+                  <option value= शाळेत&nbspयेण्यात&nbspआनंद&nbspवाटतो. >
+                  <option value= गृहपाठ&nbspआवडीने&nbspकरतो. >
+                  <option value= खूप&nbspप्रश्न&nbspविचारतो. >
+                  <option value= स्वत:चा&nbspअभ्यास&nbspस्वत:&nbspकरतो. >
+                  <option value= शिक्षकांविषयी&nbspआदर&nbspबाळगतो. >
+                  
+             
+            </datalist><br>
+            <div id="wrapper13">
+              
+            </div>
+            
+  
+          </td>
+        </tr>
+
+
+      </table>
+  
+
+
+
+
+
+    
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="b btn btn-primary">Save</button>
+      </div>
+    </div>
+  </form>
+
+
+
+  
+  
+
+
+
+
+  
+    
+
+   <br>
+   <br>
+   <br>
+   <div class="text-center" width="100%">
+    <button id="cmd" onclick="printss();" class="b printss">Print</button>
+   </div>
+    
+<br>
+    
+    <script>
+      
+
+      $("button").click(function() {
+          ID=this.id;
+          console.log(ID)
+
+          if(ID == 1){
+            var dummy = '<input class="a" list="marathi" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+          
+          }
+          else if(ID == 2){
+            var dummy = ' <input class="a" list="hindi" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+         
+          }else if(ID == 3){
+
+            var dummy = ' <input class="a" list="english" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+         }else if(ID == 4){
+            var dummy = ' <input class="a" list="maths" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+
+         }else if(ID == 5){
+            var dummy = ' <input class="a" list="science" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+                        
+          }else if(ID == 6){
+            var dummy = ' <input class="a" list="history" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+                        
+        }else if(ID == 7){
+            var dummy = ' <input class="a" list="skill" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+                        
+          }else if(ID == 8){
+            var dummy = ' <input class="a" list="work" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+
+          }else if(ID == 9){
+            
+            var dummy = ' <input class="a" list="social-science" name="alex" id="hello" style="display:table-cell; width:100% ; height: 100%;">';
+                    
+          }
+         
+
+          //  probable if condition to check which datalist to enter on which click else the data list may mixup
+
+          
+          document.getElementById('wrapper'+ID+'').innerHTML += dummy;  
+
+      });
+
+      function printss(){
+       
+       
+
+            $('.a').css({
+                'border': '0',
+                'outline': '0',
+            });
+            $('.b').css({
+                'display':'none',
+            });
+
+           window.print();
+
+           
+
+        }
+
+      
+      
+      
+    </script>
+  
+    
+    
+</body>
+</html>
+
+
+

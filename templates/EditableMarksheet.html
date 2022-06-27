@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-34fe{border-color:inherit;text-align:center;vertical-align:top}
+        .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+        .tg .tg-llyw{border-color:inherit;text-align:left;vertical-align:top}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+    
+        
+    textarea {
+        border: none;
+        width: 100%;
+        -webkit-box-sizing: border-box; /* <=iOS4, <= Android  2.3 */
+           -moz-box-sizing: border-box; /* FF1+ */
+                box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+    }
+
+    @media print {
+      @page { margin: 0; }
+      body { margin: 1.6cm; }
+    }
+    
+    
+    .printss {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+    .text-center{
+        text-align: center;
+        }
+       
+        </style>
+         {% for i in dests %}
+        <form method="POST" action="/EditableMarksheet">
+          {% csrf_token %}
+
+          <table class="test">
+            <tr>
+              <th style="width:25%;">सत्र :
+                <input class="a" list="sem" value = "{{i.term}}" name="sem" id="browser" style="display:table-cell; width:20% ; height: 20%;">
+                    <datalist id="sem">
+                        <option value="प्रथम ">
+                        <option value="दुतिय">
+                    </datalist><br>
+                  
+              </th>
+              <th style="vertical-align: middle;"><h2 style="font-family: Arial, Helvetica, sans-serif;">आकारिक व संकलित मूल्यमापन  गुण नोंद तक्ता</h2></th>
+            </tr>
+            
+            <tr>
+              <td><b>इयत्ता : <b><input type="text" class="a" name="std" value="{{i.std}}"><br><br><b>हजेरी क्र:</b><input type="text" class="a" name="rollNo" value="{{i.rollNo}}"></td><br>
+              <td> <b> विद्यार्थ्यांचे नाव : <b><input type="text" class="a" name="name" size="40" value="{{i.name}}"><br><br><b>तुकडी : </b><input type="text" class="a"  name="div" value="{{i.div}}"></td>
+              
+            </tr>
+      
+            <!-- <tr>
+              <td><b>इयत्ता : <b><input type="text" class="a" name="std" value="{{i.std}}"></td>
+              <td> <b> विद्यार्थ्यांचे नाव : <b><input type="text" class="a" value="{{i.name}}" name="name" size="40"><input type="text" class="b" class="b" value="{{i.rollNo}}" name="rollNo" placeholder="rollNo" size="10"><input type="text" class="b" value="{{i.divi}}" name="divi" placeholder="Division" size="10"></td>
+              
+            </tr> -->
+          
+          </table>
+
+ 
+          <!-- <h2>व - संकलित मुलयमापन नोंदवही</h2><br>
+        <span>तुकडी  :<input class="a" name="div" type="text" size="2" value="{{i.div}}"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>हजेरी क्रमांक :<input class="a" type="text" name="registerNo" value="{{i.registerNo}}" size="10"><input type="text" name="rollNo" class="b" value="{{i.rollNo}}"size="10" placeholder="rollNO"></span><br><br><br>  -->
+        <table class="tg" width="100%">
+        <thead>
+          <tr>
+            <th class="tg-0pky" rowspan="2">अ.<br>क्<br><br></th>
+            <th class="tg-c3ow" colspan="2" rowspan="2">तपशील</th>
+            <th class="tg-c3ow" colspan="9"> (अ) आकारिक मूल्यमापन </th>
+            <th class="tg-c3ow" colspan="4" rowspan="2">( ब ) संकलित मूल्यमापन</th>
+            <th class="tg-0pky" rowspan="3">एकूण<br>अ + ब<br></th>
+            <th class="tg-0pky" rowspan="3">श्रेणी</th>
+          </tr>
+          <tr>
+            <td class="tg-0pky">दैनंदिन<br> निरीक्षण</td>
+            <td class="tg-0pky">तोंडीकाम</td>
+            <td class="tg-0pky">प्रात्यक्षिके/<br> प्रयोग</td>
+            <td class="tg-0pky">उपक्रम/ <br>कृती</td>
+            <td class="tg-0pky"> प्रकल्प </td>
+            <td class="tg-0pky"> चाचणी <br> (लेखी ) </td>
+            <td class="tg-0pky">स्वाध्याय/<br>वर्गकार्य</td>
+            <td class="tg-0pky">&nbsp;&nbsp;&nbsp;इतर&nbsp;&nbsp;&nbsp;</td>
+            <td class="tg-0pky"></td>
+          </tr>
+          <tr>
+            <td class="tg-llyw"></td>
+            <td class="tg-c3ow" colspan="2">विषय</td>
+            <td class="tg-c3ow">१</td>
+            <td class="tg-c3ow">२</td>
+            <td class="tg-c3ow">३</td>
+            <td class="tg-c3ow">४</td>
+            <td class="tg-c3ow">५</td>
+            <td class="tg-c3ow">६</td>
+            <td class="tg-c3ow">७</td>
+            <td class="tg-c3ow">८</td>
+            <td class="tg-0pky"> एकूण </td>
+            <td class="tg-0pky">तोंडी</td>
+            <td class="tg-0pky">प्रात्य</td>
+            <td class="tg-0pky">लेखी</td>
+            <td class="tg-0pky">एकूण</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-0pky" rowspan="2">१</td>
+            <td class="tg-0pky" rowspan="2">प्रथम भाषा <br>मराठी<br></td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="two" value="5"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="three" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="four" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="six" value="20"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="seven" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="eight" value="5"></td>
+            <td class="tg-llyw"><input class="a total11 t1" type="text" size="1" name="nine" value="50"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="ten" value="10"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="eleven" value="-"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="twelve" value="40"></td>
+            <td class="tg-llyw"><input class="a total12 t1" type="text" size="1" name="thirteen" value="50"></td>
+            <td class="tg-llyw"><input class="a total13" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a grade1" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a qty2" type="text" name="A1" value="{{i.A1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a qty2" type="text" name="A2" value="{{i.A2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a qty2" type="text" name="A3" value="{{i.A3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a  qty2" type="text" name="A4" value="{{i.A4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a qty2" type="text" name="A5" value="{{i.A5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a qty2" type="text" name="A6" value="{{i.A6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a qty2" type="text" name="A7" value="{{i.A7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a  qty2" type="text" name="A8" value="{{i.A8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a total21 t2" type="text" name="A9" value="{{i.A9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a qty22" type="text" name="A10" value="{{i.A10}}" size="1"></td>
+            <td class="tg-llyw"><input class="a qty22" type="text" name="A11" value="{{i.A11}}" size="1"></td>
+            <td class="tg-llyw"><input class="a qty22" type="text" name="A12" value="{{i.A12}}" size="1"></td>
+            <td class="tg-llyw"><input class="a total22 t2" type="text" name="A13" value="{{i.A13}}" size="1"></td>
+            <td class="tg-llyw"><input class="a total23" type="text" name="A14" value="{{i.A14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a grade2" type="text" name="A15" value="{{i.A15}}" size="1"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" rowspan="2">२</td>
+            <td class="tg-0pky" rowspan="2">द्वितीय भाषा <br>हिंदी<br></td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="two" value="5"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="three" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="four" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="six" value="20"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="seven" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="eight" value="5"></td>
+            <td class="tg-llyw"><input class="a total11 t1" type="text" size="1" name="nine" value="50"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="ten" value="10"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="eleven" value="-"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="twelve" value="40"></td>
+            <td class="tg-llyw"><input class="a total12 t1" type="text" size="1" name="thirteen" value="50"></td>
+            <td class="tg-llyw"><input class="a total13" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a grade1" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a" type="text" name="B1" value="{{i.B1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B2" value="{{i.B2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B3" value="{{i.B3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B4" value="{{i.B4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B5" value="{{i.B5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B6" value="{{i.B6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B7" value="{{i.B7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B8" value="{{i.B8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B9" value="{{i.B9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B10" value="{{i.B10}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B11" value="{{i.B11}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B12" value="{{i.B12}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B13" value="{{i.B13}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B14" value="{{i.B14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="B15" value="{{i.B15}}" size="1"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" rowspan="2">३</td>
+            <td class="tg-0pky" rowspan="2">तृतीय  भाषा <br>इंग्रजी<br></td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="two" value="5"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="three" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="four" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="six" value="20"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="seven" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="eight" value="5"></td>
+            <td class="tg-llyw"><input class="a total11 t1" type="text" size="1" name="nine" value="50"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="ten" value="10"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="eleven" value="-"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="twelve" value="40"></td>
+            <td class="tg-llyw"><input class="a total12 t1" type="text" size="1" name="thirteen" value="50"></td>
+            <td class="tg-llyw"><input class="a total13" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a grade1" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a" type="text" name="C1" value="{{i.C1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C2" value="{{i.C2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C3" value="{{i.C3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C4" value="{{i.C4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C5" value="{{i.C5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C6" value="{{i.C6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C7" value="{{i.C7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C8" value="{{i.C8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C9" value="{{i.C9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C10" value="{{i.C10}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C11" value="{{i.C11}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C12" value="{{i.C12}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C13" value="{{i.C13}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C14" value="{{i.C14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="C15" value="{{i.C15}}" size="1"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" rowspan="2">४</td>
+            <td class="tg-0pky" rowspan="2">गणित</td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="two" value="5"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="three" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="four" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="six" value="20"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="seven" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="eight" value="5"></td>
+            <td class="tg-llyw"><input class="a total11 t1" type="text" size="1" name="nine" value="50"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="ten" value="10"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="eleven" value="-"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="twelve" value="40"></td>
+            <td class="tg-llyw"><input class="a total12 t1" type="text" size="1" name="thirteen" value="50"></td>
+            <td class="tg-llyw"><input class="a total13" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a grade1" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a" type="text" name="D1" value="{{i.D1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D2" value="{{i.D2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D3" value="{{i.D3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D4" value="{{i.D4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D5" value="{{i.D5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D6" value="{{i.D6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D7" value="{{i.D7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D8" value="{{i.D8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D9" value="{{i.D9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D10" value="{{i.D10}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D11" value="{{i.D11}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D12" value="{{i.D12}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D13" value="{{i.D13}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D14" value="{{i.D14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="D15" value="{{i.D15}}" size="1"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" rowspan="2">५</td>
+            <td class="tg-0pky" rowspan="2">सा.विज्ञान<br>परिसर अ.</td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="two" value="5"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="three" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="four" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="six" value="20"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="seven" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="eight" value="5"></td>
+            <td class="tg-llyw"><input class="a total11 t1" type="text" size="1" name="nine" value="50"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="ten" value="10"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="eleven" value="-"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="twelve" value="40"></td>
+            <td class="tg-llyw"><input class="a total12 t1" type="text" size="1" name="thirteen" value="50"></td>
+            <td class="tg-llyw"><input class="a total13" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a grade1" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a" type="text" name="E1" value="{{i.E1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E2" value="{{i.E2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E3" value="{{i.E3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E4" value="{{i.E4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E5" value="{{i.E5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E6" value="{{i.E6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E7" value="{{i.E7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E8" value="{{i.E8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E9" value="{{i.E9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E10" value="{{i.E10}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E11" value="{{i.E11}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E12" value="{{i.E12}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E13" value="{{i.E13}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E14" value="{{i.E14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="E15" value="{{i.E15}}" size="1"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" rowspan="2">६</td>
+            <td class="tg-0pky" rowspan="2">सामाजिक <br>शास्त्रे</td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="two" value="5"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="three" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="four" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="six" value="20"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="seven" value="10"></td>
+            <td class="tg-llyw"><input class="a qty1" type="text" size="1" name="eight" value="5"></td>
+            <td class="tg-llyw"><input class="a total11 t1" type="text" size="1" name="nine" value="50"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="ten" value="10"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="eleven" value="-"></td>
+            <td class="tg-llyw"><input class="a qty11" type="text" size="1" name="twelve" value="40"></td>
+            <td class="tg-llyw"><input class="a total12 t1" type="text" size="1" name="thirteen" value="50"></td>
+            <td class="tg-llyw"><input class="a total13" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a grade1" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a" type="text" name="F1" value="{{i.F1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F2" value="{{i.F2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F3" value="{{i.F3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F4" value="{{i.F4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F5" value="{{i.F5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F6" value="{{i.F6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F7" value="{{i.F7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F8" value="{{i.F8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F9" value="{{i.F9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F10" value="{{i.F10}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F11" value="{{i.F11}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F12" value="{{i.F12}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F13" value="{{i.F13}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F14" value="{{i.F14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="F15" value="{{i.F15}}" size="1"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" rowspan="2">७</td>
+            <td class="tg-0pky" rowspan="2">कला</td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="two" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="three" value="60"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="four" value="20"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="six" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="seven" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="eight" value="20"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="nine" value="100"></td>
+            <td class="tg-34fe" colspan="4" rowspan="6"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a" type="text" name="G1" value="{{i.G1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G2" value="{{i.G2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G3" value="{{i.G3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G4" value="{{i.G4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G5" value="{{i.G5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G6" value="{{i.G6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G7" value="{{i.G7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G8" value="{{i.G8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G9" value="{{i.G9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G14" value="{{i.G14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="G15" value="{{i.G15}}" size="1"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" rowspan="2">८</td>
+            <td class="tg-0pky" rowspan="2">कार्यानुभव</td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="two" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="three" value="60"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="four" value="20"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="six" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="seven" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="eight" value="20"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="nine" value="100"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a" type="text" name="H1" value="{{i.H1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H2" value="{{i.H2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H3" value="{{i.H3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H4" value="{{i.H4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H5" value="{{i.H5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H6" value="{{i.H6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H7" value="{{i.H7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H8" value="{{i.H8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H9" value="{{i.H9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H14" value="{{i.H14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="H15" value="{{i.H15}}" size="1"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" rowspan="2">9</td>
+            <td class="tg-0pky" rowspan="2">शा. शिक्षण</td>
+            <td class="tg-0pky">गुण पैकी </td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="one" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="two" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="three" value="60"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="four" value="20"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="five" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="six" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="seven" value="-"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="eight" value="20"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="nine" value="100"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="fourteen" value="100"></td>
+            <td class="tg-llyw"><input class="a" type="text" size="1" name="fifteen"value=""></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">प्राप्त गुण</td>
+            <td class="tg-llyw"><input class="a" type="text" name="I1" value="{{i.I1}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I2" value="{{i.I2}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I3" value="{{i.I3}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I4" value="{{i.I4}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I5" value="{{i.I5}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I6" value="{{i.I6}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I7" value="{{i.I7}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I8" value="{{i.I8}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I9" value="{{i.I9}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I14" value="{{i.I14}}" size="1"></td>
+            <td class="tg-llyw"><input class="a" type="text" name="I15" value="{{i.I15}}" size="1"></td>
+          </tr>
+         
+        </tbody>
+        </table>
+
+
+
+
+       
+        <br><br><br><br><br><br>
+
+        <span style="float: left;">वर्गशिक्षक स्वाक्षरी</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
+        <span>मुख्याध्यापक स्वाक्षरी </span>
+      
+        <span style="float: right;">केंद्रप्रमुख स्वाक्षरी </span>
+        <br>
+
+
+        <input type="text" name="TheId" class="b" value="{{i.rollNo}}" readonly">
+
+        <div class="text-center" width="100%">
+          <button onclick="" class="b">Save</button>
+      </div>
+
+    </form>
+        
+
+    {% endfor %}
+
+        <div class="text-center" width="100%">
+            <button id="cmd" onclick="printss();" class="b printss">Print</button>
+        </div>
+<script>
+
+function printss(){
+       
+       
+
+       $('.a').css({
+           'border': '0',
+           'outline': '0',
+       });
+       $('.b').css({
+           'display':'none',
+       });
+
+      window.print();
+
+      
+
+   }
+
+    
+
+</script>
+</body>
+</html>
+
+    
